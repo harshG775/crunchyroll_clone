@@ -1,7 +1,7 @@
 const API_KEY = import.meta.env.VITE_API_KEY;
 import Axios from "axios";
 const TMDB = {
-	Trending: (timePeriod = "day", page = 1) => {
+	TrendingAll: (timePeriod = "day", page = 1) => {
 		return Axios({
 			method: "get",
 			url: `https://api.themoviedb.org/3/trending/all/${timePeriod}?api_key=${API_KEY}&page=${page}`,
