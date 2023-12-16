@@ -10,10 +10,13 @@ export default function AppLayout() {
 		});
 	}, [location]);
 	return (
-		<>
+		<div className="grid grid-cols-[8rem_1fr]">
 			<Suspense fallback={"<LoadingScreen />"}>
-				<Outlet />
+				<header>Header</header>
+				<main className="w-[calc(100vw-8rem)]">
+					<Outlet />
+				</main>
 			</Suspense>
-		</>
+		</div>
 	);
 }

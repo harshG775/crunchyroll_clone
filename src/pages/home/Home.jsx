@@ -3,6 +3,8 @@ import { useContext } from "react";
 import Context_db from "../../store/Context_db";
 import { Actions } from "../../store/Reducer_db";
 
+import TMDB from "../../helper/TMDB";
+
 export default function Home() {
 	const [state, dispatch] = useContext(Context_db);
 	const handleClick = () => {
@@ -11,6 +13,10 @@ export default function Home() {
 			payload: !state.isOpen,
 		});
 	};
+
+	TMDB.Trending().then((res) => {
+		console.log(res);
+	})
 	return (
 		<div>
 			<h1>App :{`${state.isOpen}`}</h1>
