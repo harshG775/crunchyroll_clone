@@ -19,7 +19,6 @@ export default function Overview_TvShow(props) {
 	if (isError) {
 		return <div>{error.message}</div>;
 	}
-	console.log(data);
 	return (
 		<div>
 			<h1>Tv Show</h1>

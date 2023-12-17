@@ -10,6 +10,12 @@ const TMDB = {
 	Search: (query, page = 1) => {
 		return Axios({
 			method: "get",
+			url: `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${query}&page=${page}`,
+		});
+	},
+	SearchMulti: (query, page = 1) => {
+		return Axios({
+			method: "get",
 			url: `https://api.themoviedb.org/3/search/multi?api_key=${API_KEY}&query=${query}&page=${page}`,
 		});
 	},
