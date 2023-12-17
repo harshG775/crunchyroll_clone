@@ -2,7 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import AppLayout from "./layouts/AppLayout.jsx";
 import Home from "./pages/home/Home.jsx";
-
+import Overview from "./pages/overview/Overview.jsx";
 export default function AppRoutes() {
 	const Routes = createBrowserRouter([
 		{
@@ -17,6 +17,10 @@ export default function AppRoutes() {
 					path: "/about",
 					element: "<About />",
 				},
+				{
+					path: "/overview/:media_type/:id",
+					element: <Overview />,
+				}
 			],
 		},
 	]);

@@ -13,12 +13,13 @@ const TMDB = {
 			url: `https://api.themoviedb.org/3/search/multi?api_key=${API_KEY}&query=${query}&page=${page}`,
 		});
 	},
-	Details: (id) => {
+	Details: (mediaType,id) => {
 		return Axios({
 			method: "get",
-			url: `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`,
+			url: `https://api.themoviedb.org/3/${mediaType}/${id}?api_key=${API_KEY}`,
 		});
 	},
+	
 	Cast: (id) => {
 		return Axios({
 			method: "get",

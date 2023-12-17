@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 export default function CardItem(props) {
     const { data } = props
     return (
-    <Link to={`/${data.media_type}/${data.id}`}>
+    <Link to={`overview/${data.media_type}/${data.id}`}>
         <img
             className=" rounded-lg overflow-hidden"
             src={`https://image.tmdb.org/t/p/w500${data.backdrop_path}`}
