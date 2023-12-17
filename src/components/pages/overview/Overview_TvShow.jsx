@@ -21,7 +21,7 @@ export default function Overview_TvShow(props) {
                 data.data && (
                     <div>
                         <img src={`https://image.tmdb.org/t/p/w500/${data.data.backdrop_path}`} alt="" />
-                        <h5>{data.data.title}</h5>
+                        <h5>{data.data.name}</h5>
                     </div>
                 )
             }
