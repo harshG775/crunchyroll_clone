@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import AppLayout from "./layouts/AppLayout.jsx";
+import PageNotFound from "./components/pages/notFound/PageNotFound.jsx";
 import Home from "./pages/home/Home.jsx";
 import Overview from "./pages/overview/Overview.jsx";
 export default function AppRoutes() {
@@ -23,6 +24,10 @@ export default function AppRoutes() {
 				}
 			],
 		},
+		{
+			path: "*",
+			element: <PageNotFound />,
+		}
 	]);
 	return <RouterProvider router={Routes} />;
 }
