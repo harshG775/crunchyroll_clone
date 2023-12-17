@@ -5,19 +5,17 @@ import { Actions } from "../../store/Reducer_db";
 
 import TMDB from "../../helper/TMDB";
 import { useQuery } from "@tanstack/react-query";
-
+import CardItem from "../../components/cardItem/CardItem";
 function TrendingAll() {
 	const { data } = useQuery({
 		queryKey: ["trendingAll"],
 		queryFn: () => TMDB.TrendingAll("day"),
 	});
-	console.log(data);
 	return (
-		<ul className="grid gap-4 p-4 grid-cols-[repeat(auto-fit,minmax(200px,1fr))]">
+		<ul className="container mx-auto grid gap-4 p-4 grid-cols-[repeat(auto-fit,minmax(16rem,1fr))]">
 			{data?.data?.results?.map((item) => (
 				<li key={item.id}>
-					<img className="max-w-64" src={`https://image.tmdb.org/t/p/w500${item.backdrop_path}`} alt={item.title} />
-					<h5>{item.title}</h5>
+					<CardItem data={item} />
 				</li>
 			))}
 		</ul>
