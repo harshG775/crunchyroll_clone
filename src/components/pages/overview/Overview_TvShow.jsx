@@ -32,7 +32,7 @@ export default function Overview_TvShow(props) {
 					<h5>{data.data.name}</h5>
 					<div>
 						<div>player</div>
-						<iframe
+						{/* <iframe
 							width="560"
 							height="315"
 							src={tvShowUrl
@@ -43,27 +43,24 @@ export default function Overview_TvShow(props) {
 							frameBorder="0"
 							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 							allowfullscreen
-						></iframe>
+						></iframe> */}
 					</div>
 					<div>
 						<div>seasons</div>
 						<ul>
-							{Array.from(
-								{ length: data.data.number_of_seasons },
-								(_, i) => i + 1
-							).map((season) => (
+							{data.data.seasons.map((season,key) => (
 								<li
 									onClick={() => {
-										setCurrentSeason(season);
+										setCurrentSeason(key);
 									}}
 									className={`${
-										season === currentSeason
+										key === currentSeason
 											? " bg-slate-400 text-neutral-50"
 											: ""
 									}`}
-									key={season}
+									key={key}
 								>
-									{season}
+									{key}
 								</li>
 							))}
 						</ul>
@@ -72,7 +69,7 @@ export default function Overview_TvShow(props) {
 						<div>episodes</div>
 						<ul>
 							{Array.from(
-								{ length: data.data.number_of_episodes },
+								{ length: data.data.seasons[currentSeason].episode_count },
 								(_, i) => i + 1
 							).map((episode) => (
 								<li
