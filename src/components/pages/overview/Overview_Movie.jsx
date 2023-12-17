@@ -1,6 +1,6 @@
-
 import { useQuery } from "@tanstack/react-query";
 import TMDB from "../../../helper/TMDB";
+const movieUrl = import.meta.env.VITE_MOVIE_URL;
 
 export default function Overview_Movie(props) {
 	const { id } = props;
@@ -25,6 +25,17 @@ export default function Overview_Movie(props) {
                     </div>
                 )
             }
+            <div>
+                
+                <iframe
+					width="560"
+					height="315"
+					src={movieUrl.replace("{id}", id)}
+					title={data.data.title}
+					frameBorder="0"
+					allowfullscreen
+				></iframe>
+            </div>
 		</div>
 	);
 }
