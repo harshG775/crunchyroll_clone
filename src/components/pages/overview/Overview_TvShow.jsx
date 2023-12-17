@@ -32,7 +32,7 @@ export default function Overview_TvShow(props) {
 					<h5>{data.data.name}</h5>
 					<div>
 						<div>player</div>
-						{/* <iframe
+						<iframe
 							width="560"
 							height="315"
 							src={tvShowUrl
@@ -43,7 +43,7 @@ export default function Overview_TvShow(props) {
 							frameBorder="0"
 							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 							allowfullscreen
-						></iframe> */}
+						></iframe>
 					</div>
 					<div>
 						<div>seasons</div>
@@ -52,6 +52,7 @@ export default function Overview_TvShow(props) {
 								<li
 									onClick={() => {
 										setCurrentSeason(key);
+										setCurrentEpisode(1);
 									}}
 									className={`${
 										key === currentSeason
