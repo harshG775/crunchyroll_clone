@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import TMDB from "../../../helper/TMDB";
 import { useState } from "react";
 
-const tvShowUrl = import.meta.env.VITE_TV_URL;
+const tvShowUrl = import.meta.env.VITE_TV_URL_TO;
 
 export default function Overview_TvShow(props) {
 	const { id } = props;
@@ -10,8 +10,8 @@ export default function Overview_TvShow(props) {
 		queryKey: ["overview_tvShow", id],
 		queryFn: () => TMDB.Details("tv", id),
 	});
-	const [currentSeason, setCurrentSeason] = useState(1);
-	const [currentEpisode, setCurrentEpisode] = useState(1);
+	const [currentSeason, setCurrentSeason] = useState(0);
+	const [currentEpisode, setCurrentEpisode] = useState(0);
 
 	if (isLoading) {
 		return <div>Loading...</div>;
@@ -60,7 +60,7 @@ export default function Overview_TvShow(props) {
 									}`}
 									key={key}
 								>
-									{key}
+									{key+1}
 								</li>
 							))}
 						</ul>

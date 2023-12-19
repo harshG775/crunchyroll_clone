@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import TMDB from "../../../helper/TMDB";
-const movieUrl = import.meta.env.VITE_MOVIE_URL;
+const movieUrl = import.meta.env.VITE_MOVIE_URL_TO;
 
 export default function Overview_Movie(props) {
 	const { id } = props;
