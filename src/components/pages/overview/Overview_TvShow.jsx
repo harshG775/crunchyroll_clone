@@ -11,7 +11,7 @@ export default function Overview_TvShow(props) {
 		queryFn: () => TMDB.Details("tv", id),
 	});
 	const [currentSeason, setCurrentSeason] = useState(0);
-	const [currentEpisode, setCurrentEpisode] = useState(0);
+	const [currentEpisode, setCurrentEpisode] = useState(1);
 
 	if (isLoading) {
 		return <div>Loading...</div>;
