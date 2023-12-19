@@ -1,8 +1,9 @@
 import SearchBox from "../../searchBox/SearchBox";
+import { Link } from "react-router-dom";
 export default function TopNavbar() {
 	return (
 		<nav className="flex justify-between">
-			<div>LOGO</div>
+			<Link to={"/"}>LOGO</Link>
 			<SearchBox />
 		</nav>
 	);
