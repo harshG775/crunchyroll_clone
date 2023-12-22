@@ -5,6 +5,10 @@ import PageNotFound from "./components/pages/notFound/PageNotFound.jsx";
 import Home from "./pages/home/Home.jsx";
 import SearchResult from "./pages/search/SearchResult.jsx";
 import Overview from "./pages/overview/Overview.jsx";
+
+// *login
+import SignUp from "./pages/signUp/SignUp.jsx";
+import LogIn from "./pages/logIn/LogIn.jsx";
 export default function AppRoutes() {
 	const Routes = createBrowserRouter([
 		{
@@ -30,6 +34,15 @@ export default function AppRoutes() {
 				{
 					path: "overview/:media_type/:id/player",
 					element: <PrivateRoute components={{ superAdmin: "SuperAdmin_component", admin: "Admin_component", user: "User_component", }} />,
+				},
+
+				{
+					path: "sign-up",
+					element: <SignUp/>,
+				},
+				{
+					path: "login",
+					element: <LogIn/>,
 				},
 			],
 		},
