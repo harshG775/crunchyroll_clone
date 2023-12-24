@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Icon } from "@iconify/react";
 export default function SearchBox() {
 	const [QInput, setQInput] = useState("");
 	const navigate = useNavigate();
@@ -18,14 +19,19 @@ export default function SearchBox() {
 			<form
 				action="/"
 				onSubmit={searchSubmitHandle}
-			>
+				className="flex items-center justify-end relative p-1 px-2 ">
 				<input
-					type="text"
+					className=" transition-[width] duration-300 ease-out w-[50%] focus:w-[85%] px-4 py-1 rounded-l-full border-2 border-gray-400 "
+					type="search"
 					placeholder="Search"
 					value={QInput}
 					onChange={(e) => setQInput(e.target.value)}
 				/>
-				<button type="submit">search</button>
+				<button
+					className="space-x-4 text-2xl p-1 rounded-r-full bg-gray-300 text-white border-2 border-l-0 border-gray-400"
+					type="submit">
+					<Icon icon="material-symbols:search" />
+				</button>
 			</form>
 		</>
 	);
