@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import TMDB from "../../../helper/TMDB";
 import { useState } from "react";
 
-const tvShowUrl = import.meta.env.VITE_TV_URL_TO;
+const VITE_TV_BASE_URL_TO = import.meta.env.VITE_TV_BASE_URL_TO;
 
 export default function Overview_TvShow(props) {
 	const { id } = props;
@@ -34,12 +34,11 @@ export default function Overview_TvShow(props) {
 						<iframe
 							width="560"
 							height="315"
-							src={tvShowUrl
+							src={VITE_TV_BASE_URL_TO
 								.replace("{id}", id)
 								.replace("{season}", currentSeason)
 								.replace("{episode}", currentEpisode)}
 							title={data.data.name}
-							frameBorder="0"
 							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 							allowfullscreen
 						></iframe>
