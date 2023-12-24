@@ -29,6 +29,7 @@ export default function Overview_Movie(props) {
             <div>
                 
                 <Iframe
+                    key={id}
 					src={VITE_MOVIE_BASE_URL_TO.replace("{id}", id)}
 					title={data.data.title}
 				/>

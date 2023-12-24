@@ -32,6 +32,7 @@ export default function Overview_TvShow(props) {
 					<div>
 						<div>player</div>
 						<Iframe
+                            key={currentEpisode+currentSeason}
 							src={VITE_TV_BASE_URL_TO
 								.replace("{id}", id)
 								.replace("{season}", currentSeason)
@@ -48,11 +49,7 @@ export default function Overview_TvShow(props) {
 										setCurrentSeason(key);
 										setCurrentEpisode(1);
 									}}
-									className={`${
-										key === currentSeason
-											? " bg-slate-400 text-neutral-50"
-											: ""
-									}`}
+									className={`cursor-pointer ${ key === currentSeason ? " bg-slate-400 text-neutral-50" : "" }`}
 									key={key}
 								>
 									{key+1}
@@ -71,11 +68,7 @@ export default function Overview_TvShow(props) {
 									onClick={() => {
 										setCurrentEpisode(episode);
 									}}
-									className={`${
-										episode === currentEpisode
-											? " bg-slate-400 text-neutral-50"
-											: ""
-									}`}
+									className={` cursor-pointer ${ episode === currentEpisode ? " bg-slate-400 text-neutral-50" : "" }`}
 									key={episode}
 								>
 									{episode} episode
