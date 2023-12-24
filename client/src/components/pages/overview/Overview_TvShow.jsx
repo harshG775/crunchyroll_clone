@@ -3,7 +3,7 @@ import TMDB from "../../../helper/TMDB";
 import { useState } from "react";
 
 const VITE_TV_BASE_URL_TO = import.meta.env.VITE_TV_BASE_URL_TO;
-
+import Iframe from "../../player/Iframe";
 export default function Overview_TvShow(props) {
 	const { id } = props;
 	const { data, isLoading, isError, error } = useQuery({
@@ -31,17 +31,13 @@ export default function Overview_TvShow(props) {
 					<h5>{data.data.name}</h5>
 					<div>
 						<div>player</div>
-						<iframe
-							width="560"
-							height="315"
+						<Iframe
 							src={VITE_TV_BASE_URL_TO
 								.replace("{id}", id)
 								.replace("{season}", currentSeason)
 								.replace("{episode}", currentEpisode)}
 							title={data.data.name}
-							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-							allowfullscreen
-						></iframe>
+						/>
 					</div>
 					<div>
 						<div>seasons</div>

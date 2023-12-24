@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import TMDB from "../../../helper/TMDB";
 const VITE_MOVIE_BASE_URL_TO = import.meta.env.VITE_MOVIE_BASE_URL_TO;
-
+import Iframe from "../../player/Iframe";
 export default function Overview_Movie(props) {
 	const { id } = props;
 	const { data, isLoading,isError,error } = useQuery({
@@ -14,6 +14,7 @@ export default function Overview_Movie(props) {
     if (isError) {
         return <div>{error.message}</div>;
     }
+
 	return (
 		<div>
 			<h1>Movie</h1>
@@ -27,14 +28,10 @@ export default function Overview_Movie(props) {
             }
             <div>
                 
-                <iframe
-					width="560"
-					height="315"
+                <Iframe
 					src={VITE_MOVIE_BASE_URL_TO.replace("{id}", id)}
 					title={data.data.title}
-					frameBorder="0"
-					allowfullscreen
-				></iframe>
+				/>
             </div>
 		</div>
 	);
