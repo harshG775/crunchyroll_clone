@@ -3,7 +3,7 @@ import CardItem from "./sectionComponents/cardItem/CardItem"
 import ShowMore from "./sectionComponents/ShowMore"
 export default function Section({title,iconName, data}) {
     return (
-        <div className="bg-neutral-900 text-neutral-50 mt-4">
+        <div className="bg-neutral-900 text-neutral-50 mt-12 ">
             <SectionTitle title={title} iconName={iconName}/>
             <section className="container mx-auto">
                 <ul className="grid gap-4 p-4 grid-cols-[repeat(auto-fit,minmax(16rem,1fr))]">

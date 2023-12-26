@@ -35,7 +35,7 @@ export default function AppLayout() {
 						</ul>
 					</nav>
 				</section>
-				<div className="dashboard-main-body   grid grid-rows-[1fr_auto]">
+				<div className="dashboard-main-body bg-neutral-900 text-neutral-50  grid grid-rows-[1fr_auto]">
 					<main>
 						<Outlet />
 					</main>
