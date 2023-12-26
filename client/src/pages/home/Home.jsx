@@ -5,21 +5,15 @@ import { Actions } from "../../store/Reducer_db";
 
 import TMDB from "../../helper/TMDB";
 import { useQuery } from "@tanstack/react-query";
-import CardItem from "../../components/cardItem/CardItem";
+import Section from "../../components/pages/section/Section";
 function TrendingAll() {
-	const { data } = useQuery({
+	const { data:trendingAll } = useQuery({
 		queryKey: ["trendingAll"],
 		queryFn: () => TMDB.TrendingAll("day"),
 	});
-	return (
-		<ul className="container mx-auto grid gap-4 p-4 grid-cols-[repeat(auto-fit,minmax(16rem,1fr))]">
-			{data?.data?.results?.map((item) => (
-				<li key={item.id}>
-					<CardItem data={item} />
-				</li>
-			))}
-		</ul>
-	);
+    return (
+        <Section data={trendingAll?.data} title={"Trending All"} iconName={"game-icons:fox"}/>
+    )
 }
 export default function Home() {
 	const [state, dispatch] = useContext(Context_db);
