@@ -10,12 +10,12 @@ export default function ShowMore(props) {
                  relative top-6
                 z-10 bg-neutral-900 hover:bg-neutral-600 outline-neutral-600
                 outline outline-2              
-                rounded-full flex justify-center items-center gap-4 p-1 px-8"
+                rounded-full grid grid-cols-[1fr_auto] items-center gap-4 pb-1 px-6"
                 >
                 <h2 className="text-xl font-semibold">
                     {title}
                 </h2>
-                <Icon className="text-3xl" icon={"iconamoon:arrow-down-2-light"}/>
+                <Icon className="text-2xl" icon={"iconamoon:arrow-down-2-light"}/>
             </div>
         </div>
     )
