@@ -3,6 +3,7 @@ import TMDB from "../../../helper/TMDB";
 import { useState } from "react";
 
 const TV_BASE_URL_TO="https://vidsrc.to/embed/tv/{id}/{season}/{episode}"
+import Image from "next/image";
 import Iframe from "../../player/Iframe";
 export default function Overview_TvShow(props) {
 	const { id } = props;
@@ -24,7 +25,9 @@ export default function Overview_TvShow(props) {
 			<h1>Tv Show</h1>
 			{data.data && (
 				<div>
-					<img
+					<Image
+                        width={500}
+                        height={500}
 						src={`https://image.tmdb.org/t/p/w500/${data.data.backdrop_path}`}
 						alt=""
 					/>
