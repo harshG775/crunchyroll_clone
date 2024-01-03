@@ -1,20 +1,9 @@
-import Section from "../../section/Section";
 import TMDB from "@/helper/TMDB";
-async function TrendingAll() {
-	const resp = await TMDB.TrendingAll("day")
-	return (
-		<Section
-			data={resp?.data}
-			title={"Trending All"}
-			iconName={"game-icons:fox"}
-		/>
-	);
-}
+import Carousel from "../../carousels/carousel";
+export default async function CarouselHero() {
+    const resp = await TMDB.TrendingAll("day");
 
-export default function CarouselHero() {
 	return (
-		<>
-			<TrendingAll />
-		</>
+		<Carousel data={resp.data.results}/>
 	);
 }
