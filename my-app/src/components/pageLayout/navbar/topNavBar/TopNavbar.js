@@ -1,5 +1,5 @@
 "use client";
-import SearchBox from "../../searchBox/SearchBox";
+import SearchBox from "../../../searchBox/SearchBox";
 import Link from "next/link";
 import { twMerge } from "tailwind-merge";
 import {Icon} from"@iconify/react";

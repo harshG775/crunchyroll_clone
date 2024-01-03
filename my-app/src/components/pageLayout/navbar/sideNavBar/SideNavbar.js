@@ -1,16 +1,18 @@
 "use client";
 import { twMerge } from "tailwind-merge";
 import {Icon} from"@iconify/react";
+import Link from "next/link";
+
 export default function SideNavbar({className}) {
     return (
         <nav className={twMerge("flex justify-between bg-slate-800 p-4", className)}>
             <Icon icon="mingcute:menu-fill" />
             <ul>
-                <li><a href="/home">Home</a></li>
-                <li><a href="/movies">Movies</a></li>
-                <li><a href="/tv">Tv</a></li>
-                <li><a href="/search">Search</a></li>
-                <li><a href="/about">About</a></li>
+                <li><Link href="/home">Home</Link></li>
+                <li><Link href="/movies">Movies</Link></li>
+                <li><Link href="/tv">Tv</Link></li>
+                <li><Link href="/search">Search</Link></li>
+                <li><Link href="/about">About</Link></li>
             </ul>
         </nav>
     )
