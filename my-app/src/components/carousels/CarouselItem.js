@@ -15,9 +15,9 @@ export default function CarouselItem(data) {
 			<Image
 				width={720}
 				height={480}
-				loading="eager"
-				src={`https://image.tmdb.org/t/p/w500${data.backdrop_path}`}
-				alt=""
+                loading="eager"
+				src={`https://image.tmdb.org/t/p/w780${data.backdrop_path}`}
+				alt={title}
 			/>
 			<div className="flex justify-between">
 				<p>{data.vote_average}</p>
