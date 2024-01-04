@@ -4,6 +4,8 @@ export default async function CarouselHero() {
     const resp = await TMDB.TrendingAll("day");
 
 	return (
-		<Carousel data={resp.data.results}/>
+        <section className="max-w-8xl mx-auto p-4">
+            <Carousel data={resp.data.results}/>
+        </section>
 	);
 }
