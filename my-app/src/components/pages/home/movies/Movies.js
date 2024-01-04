@@ -1,5 +1,5 @@
 import TMDB from "@/helper/TMDB";
-import Section from "../../section/Section";
+import Section from "@/components/section/Section";
 async function NowPlaying() {
     const resp = await TMDB.NowPlaying_Movies(1)
 	return (
