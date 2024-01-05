@@ -11,7 +11,7 @@ export default function CarouselItem(data) {
 			? data?.title
 			: data?.original_title;
 	return (
-		<Link href={`/overview`}>
+		<Link href={`${data.media_type}/overview/${title.replace(/\s+/g, "-")}.=.${data.id}`}>
 			<Image
 				width={720}
 				height={480}

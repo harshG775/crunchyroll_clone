@@ -11,6 +11,11 @@ export default class TMDB {
 			`/movie/now_playing?language=${language}&api_key=${API_KEY}&page=${page}`
 		);
 	}
+    static DetailsById (mediaType, mediaId, language = "en-US") {
+        return axios_tmdbToken.get(
+            `/${mediaType}/${mediaId}?language=${language}&api_key=${API_KEY}`
+        );
+    }
 }
 
 // import Axios from "axios";
