@@ -7,6 +7,7 @@ import ContextProvider_db from "@/store/ContextProvider_db";
 import PageLoader from "@/components/loaders/pageLoader/PageLoader";
 
 import "./globals.css";
+import "./layout.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -18,13 +19,13 @@ export default function RootLayout({ children }) {
 	return (
 		<ContextProvider_db>
 			<html lang="en">
-				<body className={inter.className}>
-					<TopNavbar />
-					<SideNavbar />
+				<body className={`${inter.className} body-wrapper`}>
+					<TopNavbar className={"app-top-navbar"}/>
+					{/* <SideNavbar className={"app-side-navbar"}/> */}
 					<Suspense fallback={<PageLoader />}>
-						<main>{children}</main>
+						<main className={"app-main"}>{children}</main>
 					</Suspense>
-					<Footer />
+					<Footer className={"app-footer"}/>
 				</body>
 			</html>
 		</ContextProvider_db>

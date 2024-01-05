@@ -1,0 +1,25 @@
+.body-wrapper {
+    height: 100vh;
+}
+
+.app-top-navbar {
+    z-index: 15;
+    position: fixed;
+    inset: 0 0 auto 0;
+    background-color: hsl(0, 0%, 7%,50%);
+    backdrop-filter: 
+        blur(0.5rem)
+        grayscale(10%)
+        hue-rotate(150deg)
+        sepia(10%)
+        drop-shadow(2px 2px 20px rgba(0, 0, 0, 1));
+
+}
+
+.app-side-navbar {}
+
+.app-main {
+    z-index: 10;
+}
+
+.app-footer {}
