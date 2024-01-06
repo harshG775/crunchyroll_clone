@@ -7,6 +7,7 @@ async function NowPlaying() {
 			data={resp.data}
 			title={"Now Playing"}
 			iconName={"game-icons:fox"}
+            media_type={"movie"}
 		/>
 	);
 }
@@ -14,7 +15,7 @@ export default function Movies() {
 	return (
 		<div className="mt-12">
             <h1>Movies</h1>
-			<NowPlaying />
+			<NowPlaying/>
 		</div>
 	);
 }
