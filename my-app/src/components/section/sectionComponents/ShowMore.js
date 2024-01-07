@@ -1,11 +1,12 @@
 import { I } from "@/components/iconify/I"
+import Link from "next/link"
 export default function ShowMore(props) {
-    const {title,onClick}=props
+    const {title,media_type}=props
     return (
         <div className={" relative container mx-auto flex justify-center items-center p-2"}>
             <div className="z-0 border border-neutral-600 border-b absolute bottom-0 w-full"></div>
-            <div 
-                onClick={onClick}
+            <Link 
+                href={`/${media_type}`}
                 className="
                  relative top-6
                 z-10 bg-neutral-900 hover:bg-neutral-600 outline-neutral-600
@@ -15,8 +16,8 @@ export default function ShowMore(props) {
                 <h2 className="text-xl font-semibold">
                     {title}
                 </h2>
-                <I className="text-2xl" icon={"iconamoon:arrow-down-2-light"}/>
-            </div>
+                <I className="text-2xl" icon={"iconamoon:arrow-right-2-light"}/>
+            </Link>
         </div>
     )
 }

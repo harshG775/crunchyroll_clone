@@ -14,7 +14,7 @@ export default function Section({title,iconName, data,media_type}) {
                     ))}
                 </ul>
             </section>
-            <ShowMore title={"Show More"} />
+            <ShowMore title={"Show More"} media_type={media_type} />
         </div>
     )
 }
