@@ -1,6 +1,5 @@
 import TMDB from "@/helper/TMDB";
 import Section from "@/components/section/Section";
-import {I} from "@/components/iconify/I";
 async function Trending() {
     const resp = await TMDB.TrendingTvShows()
 	return (
@@ -15,7 +14,7 @@ async function Trending() {
 export default function TvShow() {
 	return (
 		<div className="mt-12">
-            <h1>TvShow <I icon="game-icons:fox" /></h1>
+            <h1>TvShow</h1>
 			<Trending/>
 		</div>
 	);
