@@ -6,11 +6,18 @@ export default class TMDB {
 			`/trending/all/${timePeriod}?language=${language}&api_key=${API_KEY}&page=${page}`
 		);
 	}
+    /*movies*/
     static 	NowPlaying_Movies (page = 1, language = "en-US"){
 		return axios_tmdbToken.get(
 			`/movie/now_playing?language=${language}&api_key=${API_KEY}&page=${page}`
 		);
 	}
+    /*Tv show*/
+    static TrendingTvShows(timePeriod = "day", page = 1, language = "en-US") {
+        return axios_tmdbToken.get(
+            `/trending/tv/${timePeriod}?language=${language}&api_key=${API_KEY}&page=${page}`
+        );
+    }
     static DetailsById (mediaType, mediaId, language = "en-US") {
         return axios_tmdbToken.get(
             `/${mediaType}/${mediaId}?language=${language}&api_key=${API_KEY}`
