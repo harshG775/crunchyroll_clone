@@ -1,5 +1,4 @@
-"use client"
-import { Icon } from "@iconify/react"
+import { I } from "@/components/iconify/I"
 export default function ShowMore(props) {
     const {title,onClick}=props
     return (
@@ -16,7 +15,7 @@ export default function ShowMore(props) {
                 <h2 className="text-xl font-semibold">
                     {title}
                 </h2>
-                <Icon className="text-2xl" icon={"iconamoon:arrow-down-2-light"}/>
+                <I className="text-2xl" icon={"iconamoon:arrow-down-2-light"}/>
             </div>
         </div>
     )

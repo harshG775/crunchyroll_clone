@@ -1,5 +1,4 @@
-"use client";
-import { Icon } from "@iconify/react";
+import { I } from "@/components/iconify/I";
 import Image from "next/image";
 export default function CardItem_image({ backdrop_path, poster_path, title }) {
 	if (backdrop_path != null) {
@@ -27,7 +26,7 @@ export default function CardItem_image({ backdrop_path, poster_path, title }) {
 		);
 	}
 	return (
-		<Icon
+		<I
 			className="w-full h-full mx-auto max-w-[300px] max-h-[300px] p-8 text-gray-600"
 			icon="icon-park-outline:movie"
 		/>
