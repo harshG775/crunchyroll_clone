@@ -94,8 +94,8 @@ const AccordionItemDeep = ({ item,handleToggleDeep,indexDeep,isActiveDeep  }) =>
             </div>
             <ul className="ml-4 overflow-hidden transition-grid-rows duration-300">
                 {item.subMenu.map((item, index) => (
-                    <li className="mt-2">
-                        <button key={index} className="bg-green-600 text-neutral-50">{item.title}</button>
+                    <li className="mt-2" key={index}>
+                        <button className="bg-green-600 text-neutral-50">{item.title}</button>
                     </li>
                 ))}
             </ul>
