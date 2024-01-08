@@ -135,21 +135,13 @@ export default function Accordion() {
         setIsActive(i);
     }
 	return (
-		<ul>
-			{accordionData.map((item, index) => (
-				<AccordionItem key={index} item={item} handleToggle={handleToggle} index={index} isActive={isActive} />
-			))}
-		</ul>
+        <>
+            <ul>
+                {accordionData.map((item, index) => (
+                    <AccordionItem key={index} item={item} handleToggle={handleToggle} index={index} isActive={isActive} />
+                ))}
+            </ul>
+            <div onClick={() => setIsActive(-1)}>close aria backdrop</div>
+        </>
 	);
 }
-
-
-
-// const [isActiveDeep, setIsActiveDeep] = useState(-1);
-// const handleToggleDeep = (index) => {
-//     console.log(isActiveDeep===index)
-//     if (isActiveDeep==index) {
-//         return setIsActiveDeep(-1);
-//     }
-//     setIsActiveDeep(index);
-// }
