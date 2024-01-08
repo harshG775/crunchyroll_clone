@@ -18,25 +18,24 @@ export default class TMDB {
 			`/trending/tv/${timePeriod}?language=${language}&page=${page}`
 		);
 	}
-	static DetailsById(mediaType, mediaId, language = "en-US") {
+	static DetailsById(media_type, mediaId, language = "en-US") {
 		return axios_tmdb.get(
-			`/${mediaType}/${mediaId}?language=${language}`
+			`/${media_type}/${mediaId}?language=${language}`
 		);
 	}
-	static MultiSearch(query, page = 1, mediaType, params) {
-		const { genres, countries, season, type, years, rating, language} = params;
-		let apiUrl = `/${mediaType}/search?language=${language}&query=${query}&page=${page}`;
-		if (genres.length > 0) apiUrl += `&genres=${genres.join(",")}`;
+	static MultiSearch(page = 1,params) {
+        const {with_genres,include_adult,language,media_type,query} = params;
+
+        let apiUrl = `/${media_type}/search?page=${page}`;
+		if (query.length > 0) apiUrl += `&query=${query.join(",")}`;
+
+		if (with_genres.length > 0) apiUrl += `&with_genres=${with_genres.join(",")}`;
+
+		if (include_adult.length > 0) apiUrl += `&include_adult=${include_adult.join(",")}`;
 		
-		if (countries.length > 0) apiUrl += `&countries=${countries.join(",")}`;
+		if (language.length > 0) apiUrl += `&language=${language.join(",")}`;
 		
-		if (season.length > 0) apiUrl += `&season=${season.join(",")}`;
-		
-		if (type.length > 0) apiUrl += `&type=${type.join(",")}`;
-		
-		if (years.length > 0) apiUrl += `&years=${years.join(",")}`;
-		
-		if (rating.length > 0) apiUrl += `&rating=${rating.join(",")}`;
+		// if (years.length > 0) apiUrl += `&years=${years.join(",")}`;
 		
 
 		return axios_tmdb.get(apiUrl);
