@@ -15,8 +15,15 @@ const accordionData = [
                     {
                         title: "Accordion Title deep3",
                         content: "Accordion Content",
-                        haveSubMenu: false,
-                        subMenu: null,
+                        haveSubMenu: true,
+                        subMenu: [
+                            {
+                                title: "Accordion Title deep4",
+                                content: "Accordion Content",
+                                haveSubMenu: false,
+                                subMenu: null,
+                            },
+                        ],
                     },
                 ],
             },
@@ -87,7 +94,9 @@ const AccordionItemDeep = ({ item,handleToggleDeep,indexDeep,isActiveDeep  }) =>
             </div>
             <ul className="ml-4 overflow-hidden transition-grid-rows duration-300">
                 {item.subMenu.map((item, index) => (
-                        <AccordionItem key={index} item={item} />
+                    <li className="mt-2">
+                        <button key={index} className="bg-green-600 text-neutral-50">{item.title}</button>
+                    </li>
                 ))}
             </ul>
 		</li>
