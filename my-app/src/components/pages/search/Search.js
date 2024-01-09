@@ -3,7 +3,12 @@ import { useForm } from "react-hook-form";
 import TMDB from "@/helper/TMDB";
 import { useEffect, useState } from "react";
 import { I } from "@/components/iconify/I";
-
+function objectToQueryParams(obj) {
+    return Object.keys(obj)
+        .filter(key => obj[key] !== "") // Exclude keys with empty values
+        .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(obj[key]))
+        .join('&');
+}
 const SearchPageData = {
 	Languages: [
 		{ code: "en-US", name: "English (US)" },
@@ -48,7 +53,12 @@ function SearchForm() {
 	}, []);
     
 	const handleSearch = async (data) => {
-        const resp = await TMDB.MultiSearch(1,"movie",data);
+        const resp = await TMDB.MultiSearch(data.media_type,1,{
+            with_genres:data.with_genres,
+            language:data.language,
+            include_adult:data.include_adult,
+            query:data.query
+        });
         console.log(resp);
 		
 	};
