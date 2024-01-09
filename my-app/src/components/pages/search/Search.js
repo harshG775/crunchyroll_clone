@@ -29,13 +29,14 @@ export default function Search() {
 	return (
 		<>
 			<SearchForm handleSearch={handleSearch} />
+            {isError?"something went wrong":null}
             {isLoading?"loading":
             searchResult && (
                 <Section
                     data={searchResult.data}
                     title={"search results"}
                     iconName={"game-icons:fox"}
-                    media_type={"multi"}
+                    media_type={"movie"}
                 />
             )
             }
