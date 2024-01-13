@@ -114,10 +114,9 @@ const AccordionItem = ({ item,handleToggle,index,isActive }) => {
 
     }
 
-    
     const handleToggleDeep = (i) => {
         if (isActiveDeep==i) {
-            setIsActiveDeep(-1);
+            return setIsActiveDeep(-1);
         }
         setIsActiveDeep(i);
     }
@@ -141,7 +140,7 @@ export default function Accordion() {
     const [isActive, setIsActive] = useState(-1);
     const handleToggle = (i) => {
         if (isActive==i) {
-            setIsActive(-1);
+            return setIsActive(-1);
         }
         setIsActive(i);
     }
