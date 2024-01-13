@@ -103,6 +103,8 @@ const AccordionItemDeep = ({ item,handleToggleDeep,indexDeep,isActiveDeep  }) =>
 	);
 };
 const AccordionItem = ({ item,handleToggle,index,isActive }) => {
+    const [isActiveDeep, setIsActiveDeep] = useState(-1);
+
     if (!item.haveSubMenu) {
         return (
             <li className="mt-2">
@@ -112,7 +114,6 @@ const AccordionItem = ({ item,handleToggle,index,isActive }) => {
 
     }
 
-    const [isActiveDeep, setIsActiveDeep] = useState(-1);
     const handleToggleDeep = (i) => {
         if (isActiveDeep==i) {
             setIsActiveDeep(-1);

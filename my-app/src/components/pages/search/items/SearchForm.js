@@ -44,7 +44,7 @@ export default function SearchForm({handleSearch}) {
 	};
 	useEffect(() => {
 		getMovieGenre("movie");
-	}, []);
+	}, [getMovieGenre]);
 	return (
 		<form onSubmit={handleSubmit(handleSearch)} className="max-w-4xl mx-auto p-4 ">
 			<ul className="grid gap-4 grid-cols-[repeat(auto-fit,minmax(200px,1fr))]">
