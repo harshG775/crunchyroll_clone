@@ -8,4 +8,3 @@ const axios_tmdbToken= axios.create({
 	},
 });
 export default axios_tmdbToken
-

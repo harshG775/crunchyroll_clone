@@ -2,21 +2,7 @@ import SearchBox from "../../../searchBox/SearchBox";
 import Link from "next/link";
 import { twMerge } from "tailwind-merge";
 import { I } from "@/components/iconify/I";
-import clientStorage from "@/lib/clientStorage";
-function UserIcon() {
-	const token = clientStorage.getItem("token");
-	return (
-		<div className="flex gap-2 px-2">
-			{!token ? (
-				<>
-					<Link className="px-4 py-2 rounded-lg bg-indigo-500 text-white font-semibold" href={"/sign-up"}>SignUp</Link>
-				</>
-			) : (
-				<I icon="mingcute:user-4-fill" />
-			)}
-		</div>
-	);
-}
+import UserProfileCard from "./topNavBarItems/UserProfileCard";
 
 export default function TopNavbar({className}) {
 	return (
@@ -25,7 +11,7 @@ export default function TopNavbar({className}) {
                 <li className="block md:hidden p-2"><I className="text-2xl" icon="material-symbols:menu" /></li>
                 <li><Link href={"/"} className="text-2xl">CrunchesRoll</Link></li>
                 <li className="ml-auto"><SearchBox /></li>
-                <li><UserIcon/></li>
+                <li><UserProfileCard/></li>
             </ul>
 		</nav>
 	);
