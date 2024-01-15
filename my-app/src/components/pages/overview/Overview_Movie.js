@@ -4,29 +4,34 @@ import Iframe from "../../player/Iframe";
 import Image from "next/image";
 export default async function Overview_Movie(props) {
 	const { id } = props;
-	const data = TMDB.Details("movie", id);
+	try {
+		const data = TMDB.Details("movie", id);
 
-	return (
-		<div>
-			<h1>Movie</h1>
-			{data.data && (
-				<div>
-					<Image
-                        width={500}
-                        height={500}
-						src={`https://image.tmdb.org/t/p/w500/${data.data.backdrop_path}`}
-						alt=""
-					/>
-					<h5>{data.data.title}</h5>
-				</div>
-			)}
+		return (
 			<div>
-				<Iframe
-					key={id}
-					src={MOVIE_BASE_URL_TO.replace("{id}", id)}
-					title={data.data.title}
-				/>
+				<h1>Movie</h1>
+				{data.data && (
+					<div>
+						<Image
+							width={500}
+							height={500}
+							src={`https://image.tmdb.org/t/p/w500/${data.data.backdrop_path}`}
+							alt=""
+						/>
+						<h5>{data.data.title}</h5>
+					</div>
+				)}
+				<div>
+					<Iframe
+						key={id}
+						src={MOVIE_BASE_URL_TO.replace("{id}", id)}
+						title={data.data.title}
+					/>
+				</div>
 			</div>
-		</div>
-	);
+		);
+	} catch (error) {
+		console.log(error);
+		return <h1>Something went wrong Overview_movie.js</h1>;
+	}
 }
