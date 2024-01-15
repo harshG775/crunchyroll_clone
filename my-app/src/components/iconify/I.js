@@ -1,10 +1,11 @@
 "use client";
+import useClient from "@/hooks/useClient";
 import { Icon } from "@iconify/react";
 
 export function I(props) {
-	return <Icon {...props} />;
+    return useClient(()=>{<Icon {...props} />})
 }
 export function InlineI(props) {
-	return <Icon {...props} />;
+    return useClient(()=>{<Icon {...props} />})
 }
 
