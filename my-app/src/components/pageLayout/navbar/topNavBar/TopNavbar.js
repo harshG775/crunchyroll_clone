@@ -2,7 +2,7 @@ import SearchBox from "../../../searchBox/SearchBox";
 import Link from "next/link";
 import { twMerge } from "tailwind-merge";
 import { I } from "@/components/iconify/I";
-// import UserProfileCard from "./topNavBarItems/UserProfileCard";
+import UserProfileCard from "./topNavBarItems/UserProfileCard";
 
 export default function TopNavbar({className}) {
 	return (
@@ -11,7 +11,7 @@ export default function TopNavbar({className}) {
                 <li className="block md:hidden p-2"><I className="text-2xl" icon="material-symbols:menu" /></li>
                 <li><Link href={"/"} className="text-2xl">CrunchesRoll</Link></li>
                 <li className="ml-auto"><SearchBox /></li>
-                {/* <li><UserProfileCard/></li> */}
+                <li><UserProfileCard/></li>
             </ul>
 		</nav>
 	);
