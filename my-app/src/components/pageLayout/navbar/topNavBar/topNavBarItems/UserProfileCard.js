@@ -1,10 +1,11 @@
+"use client";
 import Link from "next/link";
 import { I } from "@/components/iconify/I";
-import { cookies } from "next/headers";
+import { getCookies } from "cookies-next";
+import useClient from "@/hooks/useClient";
 
-export default async function UserProfileCard() {
-    const cookiesStore = cookies()
-    const token = cookiesStore.get("token")
+export default function UserProfileCard() {
+    const token =useClient(() => getCookies("token"))
 	return (
 		<div className="flex gap-2 px-2">
 			{!token ? (
