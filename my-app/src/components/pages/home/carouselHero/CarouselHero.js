@@ -2,7 +2,7 @@ import TMDB from "@/helper/TMDB";
 import Carousel from "../../../carousels/Carousel";
 export default async function CarouselHero() {
 	try {
-		const resp = await TMDB.TrendingAll("day");
+		const resp = await TMDB.TrendingAll(1,"day");
 
 		return (
 			<section

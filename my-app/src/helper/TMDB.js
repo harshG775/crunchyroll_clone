@@ -1,22 +1,23 @@
 import axios_tmdb from "@/lib/axios_tmdb";
 export default class TMDB {
-	static TrendingAll(timePeriod = "day", page = 1, language = "en-US") {
+	static TrendingAll( page = 1, timePeriod = "day", language = "en-US") {
 		return axios_tmdb.get(
 			`/trending/all/${timePeriod}?language=${language}&page=${page}`
 		);
 	}
+    static Trending( page = 1,media_type, timePeriod = "day", language = "en-US") {
+		return axios_tmdb.get(
+			`/trending/${media_type}/${timePeriod}?language=${language}&page=${page}`
+		);
+	}
 	/*movies*/
-	static NowPlaying_Movies(page = 1, language = "en-US") {
+	static NowPlaying_Movies( page = 1, language = "en-US") {
 		return axios_tmdb.get(
 			`/movie/now_playing?language=${language}&page=${page}`
 		);
 	}
 	/*Tv show*/
-	static TrendingTvShows(timePeriod = "day", page = 1, language = "en-US") {
-		return axios_tmdb.get(
-			`/trending/tv/${timePeriod}?language=${language}&page=${page}`
-		);
-	}
+
 	static DetailsById(media_type, mediaId, language = "en-US") {
 		return axios_tmdb.get(
 			`/${media_type}/${mediaId}?language=${language}`

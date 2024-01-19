@@ -2,7 +2,7 @@ import TMDB from "@/helper/TMDB";
 import Section from "@/components/section/Section";
 async function Trending() {
 	try {
-		const resp = await TMDB.TrendingTvShows();
+		const resp = await TMDB.Trending(3, "tv");
 		return (
 			<Section
 				data={resp.data}
