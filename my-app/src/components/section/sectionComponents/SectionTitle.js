@@ -1,6 +1,6 @@
 import { I } from "@/components/iconify/I"
 export default function SectionTitle(props) {
-    const {title,iconName}=props
+    const {title,iconName,media_type}=props
     return (
         <div className=" relative container overflow-hidden mx-auto flex md:justify-start justify-center items-center p-2">
             <div className="z-0 border border-b absolute w-full"></div>
@@ -14,6 +14,7 @@ export default function SectionTitle(props) {
                     {title}
                 </h1>
             </div>
+            <div className="text-xl font-semibold absolute right-1 top-1">{media_type}</div>
         </div>
     )
 }
