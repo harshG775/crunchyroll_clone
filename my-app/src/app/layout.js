@@ -1,8 +1,8 @@
 import { Inter } from "next/font/google";
 import { Suspense } from "react";
-import TopNavbar from "@/components/pageLayout/navbar/topNavBar/TopNavbar";
-import SideNavbar from "@/components/pageLayout/navbar/sideNavBar/SideNavbar";
-import Footer from "@/components/pageLayout/footer/Footer";
+import TopNavbar from "@/components/partials/navbar/topNavBar/TopNavbar";
+import SideNavbar from "@/components/partials/navbar/sideNavBar/SideNavbar";
+import Footer from "@/components/partials/footer/Footer";
 import ContextProvider_db from "@/store/ContextProvider_db";
 import PageLoader from "@/components/loaders/pageLoader/PageLoader";
 
