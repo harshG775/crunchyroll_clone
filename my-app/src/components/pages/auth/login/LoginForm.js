@@ -1,21 +1,25 @@
 "use client";
 import Link from "next/link";
-
 export default function LoginForm() {
     const handleLogin = (e) => {
         e.preventDefault();
-        console.log(e)
+        let formData = new FormData(e.target);
+        let fieldDataValue = {
+            email: formData.get("email"),
+            password: formData.get("password"),
+        }
+        console.log(fieldDataValue);
     }
 	return (
 		<form onSubmit={handleLogin}>
 			<ul className="p-4">
 				<li>
 					<label htmlFor="email">Email :</label>
-					<input type="text" id="email" />
+					<input type="text" name="email" id="email" />
 				</li>
 				<li>
 					<label htmlFor="password">Password :</label>
-					<input type="password" id="password" />
+					<input type="password" name="password" id="password" />
 				</li>
 			</ul>
 			<ul>
