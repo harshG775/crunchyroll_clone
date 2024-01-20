@@ -66,7 +66,7 @@ function SearchBarForm() {
                     ))}
                 </ul>
                 :
-                <div >Loading</div>
+                <div >Results</div>
                 }
             </div>
         </div>
