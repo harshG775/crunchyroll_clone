@@ -1,15 +1,23 @@
 "use client";
 import Link from "next/link";
-export default function LoginForm() {
-    const handleLogin = (e) => {
-        e.preventDefault();
-        let formData = new FormData(e.target);
-        let fieldDataValue = {
-            email: formData.get("email"),
-            password: formData.get("password"),
-        }
-        console.log(fieldDataValue);
+const getFormValue = (e) => {
+    e.preventDefault();
+    let formData = new FormData(e.target);
+    let fieldDataValue = {};
+    for (let pair of formData.entries()) {
+        fieldDataValue[pair[0]] = pair[1]; 
     }
+    return fieldDataValue;
+}
+const register = ()=> {
+
+}
+export default function LoginForm() {
+    const handleLogin = async (e) => {
+        const data = getFormValue(e);
+        // console.log(data);
+    }
+
 	return (
 		<form onSubmit={handleLogin}>
 			<ul className="p-4">
