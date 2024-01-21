@@ -36,7 +36,7 @@ function Header({data}) {
                         </div>
                     </div>
                     <div className="lg:col-span-2  grid gap-4 lg:grid-cols-3">
-                        <div className="lg:col-span-2 grid gap-4">
+                        <div className="lg:col-span-2 flex flex-col ">
                             <h1 className="text-3xl lg:text-start text-center">{title}</h1>
                             <p>{overview}</p>
                         </div>
