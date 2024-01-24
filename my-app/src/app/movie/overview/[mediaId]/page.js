@@ -40,19 +40,55 @@ function Header({data}) {
                             <h1 className="text-3xl lg:text-start text-center">{title}</h1>
                             <p>{overview}</p>
                         </div>
-                        <ul>
-                            <li>Release Date: {data.release_date}</li>
-                            <li>Genres: {data.genres.map((genre) => genre.name).join(", ")}</li>
-                            <li>Duration: {data.runtime} mins</li>
-                            <li>Rating: {data.vote_average}/10</li>
-                            <li>Language: {data.original_language}</li>
-                            <li>Country: {data.production_countries[0].name}</li>
-                            <li>Production: {data.production_companies[0].name}</li>
-                            <li>Homepage: {data.homepage}</li>
-                            <li>Adult: {data.adult ? "Yes" : "No"}</li>
-                            <li>Status: {data.status}</li>
-                            <li>Spoken Languages: {data.spoken_languages.map((language) => language.english_name).join(", ")}</li>
-                            <li>IMDB ID: {data.imdb_id}</li>
+                        <ul className=" [&>li>span:nth-child(2)]:text-neutral-400">
+                            <li>
+                                <span>Original Title: </span>
+                                <span>{data.original_title}</span>
+                            </li>
+                            <li>
+                                <span>Release Date:</span> 
+                                <span>{data.release_date}</span>
+                            </li>
+                            <li>
+                                <span>Genres:</span> 
+                                <span>{data.genres.map((genre) => genre.name).join(", ")}</span>
+                            </li>
+                            <li>
+                                <span>Duration: </span>
+                                <span>{data.runtime} mins</span>
+                            </li>
+                            <li>
+                                <span>Rating:</span> 
+                                <span>{data.vote_average}/10</span>
+                            </li>
+                            <li>
+                                <span>Language:</span> 
+                                <span>{data.original_language}</span>
+                            </li>
+                            <li>
+                                <span>Country: </span>
+                                <span>{data.production_countries[0].name}</span>
+                            </li>
+                            <li>
+                                <span>Production:</span> 
+                                <span>{data.production_companies[0].name}</span>
+                            </li>
+                            <li>
+                                <span>Homepage:</span> 
+                                <span>{data.homepage}</span>
+                            </li>
+                            <li>
+                                <span>Adult:</span> 
+                                <span>{data.adult ? "Yes" : "No"}</span>
+                            </li>
+                            <li>
+                                <span>Status: </span>
+                                <span>{data.status}</span>
+                            </li>
+                            <li>
+                                <span>Spoken Languages:</span>
+                                <span>{data.spoken_languages.map((language) => language.english_name).join(", ")}</span>
+                            </li>
                         </ul>
                     </div>
                 </div>
