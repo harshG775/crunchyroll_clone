@@ -1,7 +1,9 @@
 "use client";
 import { twMerge } from "tailwind-merge";
 import Sidebar from "@/components/partials/navbar/sideNavBar/sidebarComponents/Sidebar";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import Context_db from "@/store/Context_db";
+import {Actions} from "@/store/Reducer_db";
 const accordionData = [
 	{
 		title: "home",
@@ -93,7 +95,7 @@ const accordionData = [
 	},
 ];
 export default function SideNavbar({ className }) {
-    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    const [state,dispatch]=useContext(Context_db);
     const [isActive, setIsActive] = useState(-1);
     const handleToggle = (i) => {
         if (isActive==i) {
@@ -101,15 +103,13 @@ export default function SideNavbar({ className }) {
         }
         setIsActive(i);
     }
+
 	return (
         <>
-            <nav className={twMerge(`app-side-navbar ${isSidebarOpen?"":"hide-sidebar "}`, className)}>
-                <div onClick={() => setIsSidebarOpen(prev=>!prev)}>
-                    menu
-                </div>
+            <nav className={twMerge(`app-side-navbar ${state.isSidebarOpen?"":"hide-sidebar "}`, className)}>
                 <Sidebar itemData={accordionData}  handleToggle={handleToggle} isActive={isActive} setIsActive={setIsActive}/>
             </nav>
-            <div className={`sidebar-backdrop ${isSidebarOpen?"":" hidden "}`} onClick={() => setIsActive(-1)}></div>
+            <div className={`sidebar-backdrop ${state.isSidebarOpen?"":" hidden "}`} onClick={() => setIsActive(-1)}></div>
         </>
 	);
 }
