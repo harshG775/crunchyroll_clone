@@ -15,13 +15,11 @@ export default function RootLayout({ children }) {
 	return (
 		<ContextProvider_db>
 			<html lang="en">
-				<body className={`${inter.className} body-wrapper`}>
-					<AppLayout>
-						<Suspense fallback={<PageLoader />}>
-							{children}
-						</Suspense>
-					</AppLayout>
-				</body>
+                <AppLayout className={`${inter.className}`}>
+                    <Suspense fallback={<PageLoader />}>
+                        {children}
+                    </Suspense>
+                </AppLayout>
 			</html>
 		</ContextProvider_db>
 	);

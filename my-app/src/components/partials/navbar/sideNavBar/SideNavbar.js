@@ -1,10 +1,8 @@
 import { twMerge } from "tailwind-merge";
 import Link from "next/link";
-import { I } from "@/components/iconify/I";
 export default function SideNavbar({className}) {
     return (
-        <nav className={twMerge("flex justify-between bg-slate-800 p-4", className)}>
-            <I icon="mingcute:menu-fill" />
+        <nav className={twMerge("fixed inset-[0,auto,0,0] h-screen bg-slate-800 pt-14", className)}>
             <ul>
                 <li><Link href="/home">Home</Link></li>
                 <li><Link href="/movies">Movies</Link></li>

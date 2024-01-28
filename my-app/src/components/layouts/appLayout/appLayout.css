@@ -3,7 +3,7 @@
 }
 
 .app-top-navbar {
-    z-index: 15;
+    z-index: 20;
     position: fixed;
     inset: 0 0 auto 0;
     background-color: hsl(0, 0%, 7%,50%);
@@ -16,7 +16,8 @@
 
 }
 
-.app-side-navbar {}
+/* .app-side-navbar {
+} */
 
 .app-main {
     z-index: 10;
