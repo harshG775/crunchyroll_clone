@@ -30,6 +30,11 @@
         sepia(10%)
         drop-shadow(2px 2px 20px rgba(0, 0, 0, 1));
 }
+.sidebar-backdrop {
+    z-index: 10;
+    position: fixed;
+    inset: 0;
+}
 
 .app-main {
     z-index: 10;
