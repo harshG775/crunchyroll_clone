@@ -113,6 +113,13 @@ export default function SideNavbar({ className }) {
     }
 	return (
         <>
+            <div className="bg-blue-500 ">
+                <ul>
+                    <li>Home</li>
+                    <li>Tv Shows</li>
+                    <li>Movies</li>
+                </ul>
+            </div>
             <nav className={twMerge(`app-side-navbar ${state.isSidebarOpen?"":"hide-sidebar "}`, className)}>
                 <Sidebar itemData={accordionData}  handleToggle={handleToggle} isActive={isActive} setIsActive={setIsActive}/>
             </nav>
