@@ -3,7 +3,6 @@ import { twMerge } from "tailwind-merge";
 import Sidebar from "@/components/partials/navbar/sideNavBar/sidebarComponents/Sidebar";
 import { useContext, useState } from "react";
 import Context_db from "@/store/Context_db";
-import {Actions} from "@/store/Reducer_db";
 const accordionData = [
 	{
 		title: "home",

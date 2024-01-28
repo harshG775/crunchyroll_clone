@@ -17,10 +17,10 @@ export default function TopNavbar({className}) {
     }
 	return (
 		<nav className={twMerge(" ", className)}>
-            <ul className="container mx-auto flex items-center gap-2 p-2">
-                <li className="block md:hidden p-2">
+            <ul className="w-full mx-auto flex items-center gap-2 p-2">
+                <li className="p-2 grid place-items-center">
                     <button onClick={handleToggleSidebar}>
-                        <I className="text-2xl" icon="material-symbols:menu" />
+                        <I className="text-3xl" icon="material-symbols:menu" />
                     </button>
                 </li>
                 <li><Link href={"/"} className="text-2xl">CrunchesRoll</Link></li>
