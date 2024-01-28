@@ -1,9 +1,23 @@
 "use client";
 import { twMerge } from "tailwind-merge";
-// import Sidebar from "@/partials/navbar/sideNavbar/sidebarComponents/Sidebar"
-import Sidebar from "./sidebarComponents/Sidebar";
+import Sidebar from "@/components/partials/navbar/sideNavBar/sidebarComponents/Sidebar";
 import { useState } from "react";
 const accordionData = [
+	{
+		title: "home",
+		content: "Sidebar Content",
+		haveSubMenu: false,
+	},
+	{
+		title: "movies",
+		content: "Sidebar Content",
+		haveSubMenu: false,
+	},
+	{
+		title: "tv shows",
+		content: "Sidebar Content",
+		haveSubMenu: false,
+	},
 	{
 		title: "Sidebar Title deep1",
 		content: "Sidebar Content",
@@ -79,6 +93,7 @@ const accordionData = [
 	},
 ];
 export default function SideNavbar({ className }) {
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [isActive, setIsActive] = useState(-1);
     const handleToggle = (i) => {
         if (isActive==i) {
@@ -88,10 +103,13 @@ export default function SideNavbar({ className }) {
     }
 	return (
         <>
-            <nav className={twMerge("app-side-navbar", className)}>
+            <nav className={twMerge(`app-side-navbar ${isSidebarOpen?"":"hide-sidebar "}`, className)}>
+                <div onClick={() => setIsSidebarOpen(prev=>!prev)}>
+                    menu
+                </div>
                 <Sidebar itemData={accordionData}  handleToggle={handleToggle} isActive={isActive} setIsActive={setIsActive}/>
             </nav>
-            <div className="sidebar-backdrop" onClick={() => setIsActive(-1)}>close aria backdrop</div>
+            <div className={`sidebar-backdrop ${isSidebarOpen?"":" hidden "}`} onClick={() => setIsActive(-1)}></div>
         </>
 	);
 }

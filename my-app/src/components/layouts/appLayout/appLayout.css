@@ -2,6 +2,7 @@
     height: 100vh;
 }
 
+/* top navbar */
 .app-top-navbar {
     z-index: 30;
     position: fixed;
@@ -16,12 +17,17 @@
 
 }
 
+
+/* side navbar */
 .app-side-navbar {
     z-index: 20;
     position: fixed;
     inset: -3.5rem auto -3.5rem 0;
     padding: 7rem 0 7rem 0;
-    
+    transform: translateX(0%);
+    transition: transform 0.5s;
+
+
     background-color: hsl(0, 0%, 7%,80%);
     backdrop-filter: 
         blur(0.5rem)
@@ -30,12 +36,17 @@
         sepia(10%)
         drop-shadow(2px 2px 20px rgba(0, 0, 0, 1));
 }
+.hide-sidebar {
+    transform: translateX(-100%);
+}
 .sidebar-backdrop {
     z-index: 10;
     position: fixed;
     inset: 0;
 }
 
+
+/* main */
 .app-main {
     z-index: 10;
     padding-top: 3.5rem;
