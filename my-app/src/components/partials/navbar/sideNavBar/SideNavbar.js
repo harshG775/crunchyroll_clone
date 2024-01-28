@@ -113,7 +113,7 @@ export default function SideNavbar({ className }) {
     }
 	return (
         <>
-            <div className="bg-blue-500 ">
+            <div className="app-sidebar xl:hidden md:block hidden">
                 <ul>
                     <li>Home</li>
                     <li>Tv Shows</li>

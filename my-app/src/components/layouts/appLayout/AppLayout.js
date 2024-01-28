@@ -7,9 +7,9 @@ export default function AppLayout(props) {
 	return (
 		<body className={`${className} body-wrapper`}>
 			<TopNavbar className={"app-top-navbar"} />
-			<SideNavbar className={"app-side-navbar"}/>
-			<main className={"app-main"}>{children}</main>
-			<Footer className={"app-footer"} />
+            <SideNavbar className={"app-side-navbar"}/>
+            <main className={"app-main xl:pl-0 md:pl-20"}>{children}</main>
+            <Footer className={"app-footer"} />
 		</body>
 	);
 }
