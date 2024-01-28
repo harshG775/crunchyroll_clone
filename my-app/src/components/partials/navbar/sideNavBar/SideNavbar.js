@@ -3,6 +3,7 @@ import { twMerge } from "tailwind-merge";
 import Sidebar from "@/components/partials/navbar/sideNavBar/sidebarComponents/Sidebar";
 import { useContext, useState } from "react";
 import Context_db from "@/store/Context_db";
+import {Actions} from "@/store/Reducer_db";
 const accordionData = [
 	{
 		title: "home",
@@ -103,12 +104,19 @@ export default function SideNavbar({ className }) {
         setIsActive(i);
     }
 
+    const handleToggleSidebar = ()=>{
+        setIsActive(-1)
+        dispatch({
+			actionType: Actions.TOGGLE_SIDEBAR,
+			payload: !state.isSidebarOpen,
+		});
+    }
 	return (
         <>
             <nav className={twMerge(`app-side-navbar ${state.isSidebarOpen?"":"hide-sidebar "}`, className)}>
                 <Sidebar itemData={accordionData}  handleToggle={handleToggle} isActive={isActive} setIsActive={setIsActive}/>
             </nav>
-            <div className={`sidebar-backdrop ${state.isSidebarOpen?"":" hidden "}`} onClick={() => setIsActive(-1)}></div>
+            <div className={`sidebar-backdrop ${state.isSidebarOpen?"":" hidden "}`} onClick={handleToggleSidebar}></div>
         </>
 	);
 }
