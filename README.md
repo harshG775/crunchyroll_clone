@@ -1,6 +1,9 @@
 Certainly! Here's the README.md file in plain text format:
 
 ```markdown
+
+
+
 # React + Vite and Node.js Server
 
 This project is a full-stack application that combines a React frontend built with Vite and a Node.js server for backend functionality.
