@@ -1,8 +1,8 @@
 Certainly! Here's the README.md file in plain text format:
 
 ```markdown
-
-
+cd my-app
+yarn dev
 
 # React + Vite and Node.js Server
 
