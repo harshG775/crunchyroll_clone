@@ -5,7 +5,7 @@ async function Trending() {
 		const resp = await TMDB.Trending(3, "tv");
 		return (
 			<Section
-				data={resp.data}
+				results={resp.data.results}
 				title={"Now Playing"}
 				iconName={"game-icons:fox"}
 				media_type={"tv"}
