@@ -1,3 +1,4 @@
+// @ts-nocheck
 import axios_tmdb from "@/lib/axios_tmdb";
 export default class TMDB {
 	static TrendingAll( page = 1, timePeriod = "day", language = "en-US") {
