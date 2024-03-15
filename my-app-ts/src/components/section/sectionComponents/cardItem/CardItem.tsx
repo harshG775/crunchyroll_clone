@@ -17,14 +17,13 @@ export default async function CardItem({data,media_type}:{data:Type_cardItemsDat
         backdrop_path,poster_path}=data
     const titleT =(media_type === "tv") ? ( name ? name : original_name ):( title ? title : original_title );
 	return (
-		<Link className="grid gap-2" href={`/${media_type}/overview/${titleT.replace(/\s+/g, "-")}.=.${id}`}>
+		<Link className="grid gap-2" href={`/${media_type}/overview?id=${id}&title=${titleT}`}>
             <CardItem_image backdrop_path={backdrop_path} poster_path={poster_path} title={titleT}/>
             <div className="flex justify-between">
                 <p>{vote_average}</p>
                 <div>{media_type}</div>
             </div>
             <h2>{titleT}</h2>
-			
 		</Link>
 	);
 }
