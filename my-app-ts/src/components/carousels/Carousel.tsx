@@ -5,7 +5,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import "./carousel.css";
 import CarouselItem,{Type_carouselProps} from "./CarouselItem";
-import React, { Suspense } from "react";
+import React from "react";
 
 export default function Carousel({results,...props}:{results:Type_carouselProps[]}) {
 
@@ -37,9 +37,7 @@ export default function Carousel({results,...props}:{results:Type_carouselProps[
             >
 			{results?.map((item, index) => (
 				<SwiperSlide key={index}>
-                    <Suspense fallback={<div>Loading...</div>}>
-                        <CarouselItem {...item} />
-                    </Suspense>
+					<CarouselItem {...item} />
 				</SwiperSlide>
 			))}
 		</Swiper>

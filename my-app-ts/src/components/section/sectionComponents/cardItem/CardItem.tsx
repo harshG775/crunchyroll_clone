@@ -1,5 +1,6 @@
 import Link from "next/link";
 import CardItem_image from "./CardItem_image";
+import { Suspense } from "react";
 
 export type Type_cardItemsData = {
     name: string;
@@ -12,13 +13,15 @@ export type Type_cardItemsData = {
     poster_path: string;
     media_type: string;
 }
-export default async function CardItem({data,media_type}:{data:Type_cardItemsData,media_type:string}) {
+export default function CardItem({data,media_type}:{data:Type_cardItemsData,media_type:string}) {
     const {name,original_name,title,original_title,vote_average,id,
         backdrop_path,poster_path}=data
     const titleT =(media_type === "tv") ? ( name ? name : original_name ):( title ? title : original_title );
 	return (
 		<Link className="grid gap-2" href={`/${media_type}/overview?id=${id}&title=${titleT}`}>
-            <CardItem_image backdrop_path={backdrop_path} poster_path={poster_path} title={titleT}/>
+            <Suspense fallback={<div>Loading Image...</div>}>
+                <CardItem_image backdrop_path={backdrop_path} poster_path={poster_path} title={titleT}/>
+            </Suspense>
             <div className="flex justify-between">
                 <p>{vote_average}</p>
                 <div>{media_type}</div>

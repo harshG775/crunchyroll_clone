@@ -5,7 +5,7 @@ export type CardItemImageProps = {
     poster_path: string;
     title: string;
 }
-export default function CardItem_image({ backdrop_path, poster_path, title }:CardItemImageProps) {
+export default async function CardItem_image({ backdrop_path, poster_path, title }:CardItemImageProps) {
 	if (backdrop_path != null) {
 		return (
 			<Image
