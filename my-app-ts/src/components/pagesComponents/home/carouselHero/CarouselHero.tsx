@@ -1,5 +1,5 @@
 import TMDB from "@/utils/TMDB";
-import Carousel from "../../../carousels/Carousel";
+import Carousel from "@/components/carousels/Carousel";
 export default async function CarouselHero() {
 	try {
 		const resp = await TMDB.TrendingAll(1,"day");
@@ -8,7 +8,7 @@ export default async function CarouselHero() {
 			<section
 				className="py-12"
 				style={{ backgroundImage: "url(/carousel-mini.svg)" }}>
-				<Carousel data={resp.data.results} />
+				<Carousel results={resp.data.results} />
 			</section>
 		);
 	} catch (error) {
