@@ -1,6 +1,7 @@
+import Link from "next/link";
 import CardItem_image from "./CardItem_image";
 
-export type Type_resultsArray = {
+export type Type_cardItemsData = {
     name: string;
     original_name: string;
     title: string;
@@ -11,8 +12,7 @@ export type Type_resultsArray = {
     poster_path: string;
     media_type: string;
 }
-import Link from "next/link";
-export default function CardItem({data,media_type}:{data:Type_resultsArray,media_type:string}) {
+export default async function CardItem({data,media_type}:{data:Type_cardItemsData,media_type:string}) {
     const {name,original_name,title,original_title,vote_average,
         backdrop_path,poster_path}=data
     const titleT =(media_type === "tv") ? ( name ? name : original_name ):( title ? title : original_title );
