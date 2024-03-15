@@ -1,6 +1,6 @@
 import { I } from "@/components/icons/iconify/I";
 import Image from "next/image";
-type CardItemImageProps = {
+export type CardItemImageProps = {
     backdrop_path: string;
     poster_path: string;
     title: string;

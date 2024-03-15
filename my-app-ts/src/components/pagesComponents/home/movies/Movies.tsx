@@ -5,7 +5,7 @@ async function NowPlaying() {
 		const resp = await TMDB.NowPlaying_Movies(1);
 		return (
 			<Section
-				data={resp.data}
+				results={resp.data.results}
 				title={"Now Playing"}
 				iconName={"game-icons:fox"}
 				media_type={"movie"}
