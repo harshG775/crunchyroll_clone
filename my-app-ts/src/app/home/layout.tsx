@@ -13,7 +13,10 @@ export default function RootLayout({
 }>) {
     return (
         <>
-            <header className="z-40">
+            <header className="
+            z-40
+            xl:pl-64 transition-[padding] duration-200
+            ">
                 <nav>top bar</nav>
             </header>
             <SideNavbar/>

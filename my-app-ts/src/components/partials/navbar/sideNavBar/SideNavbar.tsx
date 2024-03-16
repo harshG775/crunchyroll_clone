@@ -31,6 +31,7 @@ export default function SideNavbar() {
                     z-50
                     fixed inset-y-0 left-0 w-64 bg-neutral-800
                     xl:translate-x-[0%] -translate-x-full transition-transform duration-200
+                    overflow-y-scroll scrollbar-thin
                 ">
                 <nav>
                     {/* logo toggleBTN */}

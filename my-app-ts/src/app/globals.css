@@ -23,3 +23,36 @@
         text-wrap: balance;
     }
 }
+
+@layer components {
+    .scrollbar-thin {
+        scrollbar-width: thin;
+    }
+    .scrollbar-thin {
+        scrollbar-width: thin;
+    }
+    /* .scrollbar-thin {
+        --sb-track-color: #232E33;
+        --sb-thumb-color: #c32e2e;
+        --sb-size: 8px;
+    }
+    .scrollbar-thin::-webkit-scrollbar {
+        height: 5px;
+        width: var(--sb-size)
+    }
+    .scrollbar-thin::-webkit-scrollbar-track {
+        background: var(--sb-track-color);
+        border-radius: 5px;
+    }
+    .scrollbar-thin::-webkit-scrollbar-thumb {
+        background: var(--sb-thumb-color);
+        border-radius: 5px;
+    }
+    @supports not selector(::-webkit-scrollbar) {
+        .scrollbar-thin {
+            scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+        }
+    } */
+}
+
+
