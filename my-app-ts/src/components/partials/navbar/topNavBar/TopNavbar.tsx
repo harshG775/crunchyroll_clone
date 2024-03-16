@@ -1,5 +1,5 @@
 "use client"
-import SearchBar from "./topNavBarItems/SearchBar";
+// import SearchBar from "./topNavBarItems/SearchBar";
 import Link from "next/link";
 import { I } from "@/components/icons/iconify/I";
 import UserProfileCard from "./topNavBarItems/UserProfileCard";
@@ -17,7 +17,7 @@ export default function TopNavbar() {
                         </button>
                     </li>
                     <li className="w-full"><Link href={"/"} className="text-2xl">CrunchesRoll</Link></li>
-                    <li className="ml-auto"><SearchBar /></li>
+                    {/* <li className="ml-auto"><SearchBar /></li> */}
                     <li><UserProfileCard/></li>
                 </ul>
             </nav>
