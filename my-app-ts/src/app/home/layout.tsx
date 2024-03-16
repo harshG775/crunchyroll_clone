@@ -1,4 +1,5 @@
 import SideNavbar from "@/components/partials/navbar/sideNavBar/SideNavbar";
+import TopNavbar from "@/components/partials/navbar/topNavBar/TopNavbar";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -13,12 +14,7 @@ export default function RootLayout({
 }>) {
     return (
         <>
-            <header className="
-            z-40
-            xl:pl-64 transition-[padding] duration-200
-            ">
-                <nav>top bar</nav>
-            </header>
+            <TopNavbar/>
             <SideNavbar/>
             <main className="
             z-0
