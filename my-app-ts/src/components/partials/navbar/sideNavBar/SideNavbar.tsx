@@ -28,13 +28,17 @@ export default function SideNavbar() {
 	return (
         <>
             <aside className="
-                    z-50
-                    fixed inset-y-0 left-0 w-64 bg-neutral-800
+                    z-50 fixed inset-y-0 left-0 w-64 bg-neutral-900
+                    grid grid-rows-[auto,1fr]
                     xl:translate-x-[0%] -translate-x-full transition-transform duration-200
-                    overflow-y-scroll scrollbar-thin
                 ">
-                <nav>
+                <div>
+                    LOGO
                     {/* logo toggleBTN */}
+                </div>
+                <nav className="
+                    hover:overflow-y-scroll scrollbar-thin
+                ">
                     <SidebarLinks linksData={SidebarLinksData} />
                     {/* user */}
                 </nav>

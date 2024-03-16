@@ -19,6 +19,7 @@ export default function RootLayout({
             <main className="
             z-0
             xl:pl-64 transition-[padding] duration-200
+            bg-neutral-900
             ">{children}</main>
         </>
     );

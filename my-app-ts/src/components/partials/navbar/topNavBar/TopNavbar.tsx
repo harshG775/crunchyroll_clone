@@ -8,6 +8,7 @@ export default function TopNavbar() {
         <header className="
             z-40
             xl:pl-64 transition-[padding] duration-200
+            bg-neutral-900
             ">
             <nav>
                 <ul className="w-full mx-auto flex items-center gap-2 p-2">
