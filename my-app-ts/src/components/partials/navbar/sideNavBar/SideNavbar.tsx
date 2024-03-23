@@ -36,9 +36,7 @@ export default function SideNavbar() {
                     LOGO
                     {/* logo toggleBTN */}
                 </div>
-                <nav className="
-                    hover:overflow-y-scroll scrollbar-thin
-                ">
+                <nav className="overflow-y-scroll scrollbar-thin">
                     <SidebarLinks linksData={SidebarLinksData} />
                     {/* user */}
                 </nav>
