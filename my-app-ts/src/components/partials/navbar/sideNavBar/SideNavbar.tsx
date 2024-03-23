@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import SidebarLinks from "./sidebar/SidebarLinks";
+import { I } from "@/components/icons/iconify/I";
 
 const SidebarLinksData = [
 	{
@@ -32,11 +33,17 @@ export default function SideNavbar() {
                     grid grid-rows-[auto,1fr]
                     xl:translate-x-[0%] -translate-x-full transition-transform duration-200
                 ">
-                <div>
-                    LOGO
-                    {/* logo toggleBTN */}
+                <div className="flex justify-between p-4">
+                    <div>
+                        <button>
+                            <I className="text-3xl" icon="material-symbols:menu" />
+                        </button>
+                    </div>
+                    <div>LOGO</div>
                 </div>
-                <nav className="overflow-y-scroll scrollbar-thin">
+                <nav className="
+                    hover:overflow-y-scroll scrollbar-thin
+                ">
                     <SidebarLinks linksData={SidebarLinksData} />
                     {/* user */}
                 </nav>
