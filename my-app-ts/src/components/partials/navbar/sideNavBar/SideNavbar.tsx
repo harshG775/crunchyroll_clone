@@ -32,11 +32,11 @@ export default function SideNavbar() {
     }
 	return (
         <>
-            <aside className="
+            <aside className={`
                     z-50 fixed inset-y-0 left-0 w-64 bg-neutral-900
                     grid grid-rows-[auto,1fr]
-                    xl:translate-x-[0%] -translate-x-full transition-transform duration-200
-                ">
+                    ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} transition-transform duration-200
+                `}>
                 <div className="flex justify-between p-4">
                     <div>
                         <button onClick={handleCloseSidebar}>
