@@ -1,5 +1,5 @@
-import SideNavbar from "@/components/partials/navbar/sideNavBar/SideNavbar";
-import TopNavbar from "@/components/partials/navbar/topNavBar/TopNavbar";
+// import SideNavbar from "@/components/partials/navbar/sideNavBar/SideNavbar";
+// import TopNavbar from "@/components/partials/navbar/topNavBar/TopNavbar";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -12,15 +12,16 @@ export default function RootLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-    return (
-        <>
-            <TopNavbar/>
-            <SideNavbar/>
-            <main className="
-            z-0
-            xl:pl-64 transition-[padding] duration-200
-            bg-neutral-900
-            ">{children}</main>
-        </>
-    );
+    return <>{children}</>;
+    // return (
+    //     <>
+    //         <TopNavbar/>
+    //         <SideNavbar/>
+    //         <main className="
+    //         z-0
+    //         xl:pl-64 transition-[padding] duration-200
+    //         bg-neutral-900
+    //         ">{children}</main>
+    //     </>
+    // );
 }

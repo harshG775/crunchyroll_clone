@@ -1,10 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import SidebarLinks from "./sidebar/SidebarLinks";
 import { I } from "@/components/icons/iconify/I";
-import { useStore } from "@/store/StoreProvider";
-import storeAction from "@/store/storeAction";
 const SidebarLinksData = [
 	{
         linkTo: "/home",
@@ -22,13 +19,10 @@ const SidebarLinksData = [
         iconName: "ic:baseline-home",
 	},
 ];
-export default function SideNavbar() {
-    const [{isSidebarOpen},dispatch] = useStore()
-    const handleCloseSidebar = ()=>{
-        dispatch({
-            type: storeAction.TOGGLE_SIDEBAR,
-            payload: false,
-        });
+export default function SideNavbar(props:any) {
+    const { isSidebarOpen, setIsSidebarOpen } = props;
+    const handleCloseSidebar = () => {
+        setIsSidebarOpen(false)
     }
 	return (
         <>
@@ -45,14 +39,12 @@ export default function SideNavbar() {
                     </div>
                     <div>LOGO</div>
                 </div>
-                <nav className="
-                    hover:overflow-y-scroll scrollbar-thin
-                ">
+                <nav className="overflow-y-auto scrollbar-thin">
                     <SidebarLinks linksData={SidebarLinksData} />
                     {/* user */}
                 </nav>
             </aside>
-            <div className={`sidebar-backdrop ${isSidebarOpen?"":" hidden "}`} onClick={handleCloseSidebar}></div>
+            <div className={`fixed inset-0 bg-neutral-900/50 z-40 ${isSidebarOpen?"":" hidden "}`} onClick={handleCloseSidebar}></div>
         </>
 
 	);
