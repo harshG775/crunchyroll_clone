@@ -12,8 +12,7 @@ export default function SearchBarForm({setIsSearchBarOpen}:any) {
     const [error,setError] = useState<any>(null);
     const [queryResult,setQueryResult] = useState<any>([]);
     
-    const handleQuery = async (e:{preventDefault:() => void}) => {
-        e.preventDefault()
+    const handleQuery = async () => {
         try {
             setLoading(true);
             setError(null)
@@ -32,10 +31,7 @@ export default function SearchBarForm({setIsSearchBarOpen}:any) {
     }
 	return (
         <>
-            <form
-                className="relative grid gap-2 p-2 border-b-2 border-neutral-50/10"
-                onSubmit={handleQuery}
-            >
+            <form className="relative grid gap-2 p-2 border-b-2 border-neutral-50/10">
                 <div className="flex items-center ">
                     <label className="hidden" htmlFor="searchQuery">
                         search
@@ -51,7 +47,7 @@ export default function SearchBarForm({setIsSearchBarOpen}:any) {
                         onChange={(e) => setQInput(e.target.value)}
                     />
 
-                    <button className="absolute right-4 text-neutral-950 bg-neutral-50 p-2 text-xl rounded ">
+                    <button onClick={handleQuery} type="button" className="absolute right-4 text-neutral-950 bg-neutral-50 p-2 text-xl rounded ">
                         <I icon="material-symbols:search" />
                     </button>
                 </div>
@@ -96,6 +92,7 @@ export default function SearchBarForm({setIsSearchBarOpen}:any) {
             )}
             {!loading ? (
                 <SearchResult
+                    media_type={media_type}
                     queryResult={queryResult}
                     setIsSearchBarOpen={setIsSearchBarOpen}
                 />
