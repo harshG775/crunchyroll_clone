@@ -1,5 +1,6 @@
 "use client";
 
+import { Type_sidebarSate } from "@/components/layouts/RootLayout";
 import SidebarLinks from "./sidebar/SidebarLinks";
 import { I } from "@/components/icons/iconify/I";
 const SidebarLinksData = [
@@ -19,7 +20,7 @@ const SidebarLinksData = [
         iconName: "ic:baseline-home",
 	},
 ];
-export default function SideNavbar(props:any) {
+export default function SideNavbar(props:Type_sidebarSate) {
     const { isSidebarOpen, setIsSidebarOpen } = props;
     const handleCloseSidebar = () => {
         setIsSidebarOpen(false)

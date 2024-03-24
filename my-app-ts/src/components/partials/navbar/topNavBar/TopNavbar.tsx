@@ -3,7 +3,9 @@
 import Link from "next/link";
 import { I } from "@/components/icons/iconify/I";
 import UserProfileCard from "./topNavBarItems/UserProfileCard";
-export default function TopNavbar(props:any) {
+import { Type_sidebarSate } from "@/components/layouts/RootLayout";
+
+export default function TopNavbar(props:Type_sidebarSate) {
     const { isSidebarOpen, setIsSidebarOpen } = props;
     const handleOpenSidebar = () => {
         setIsSidebarOpen(true)

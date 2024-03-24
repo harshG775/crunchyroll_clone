@@ -1,10 +1,13 @@
 "use client"
 import SideNavbar from "@/components/partials/navbar/sideNavBar/SideNavbar";
 import TopNavbar from "@/components/partials/navbar/topNavBar/TopNavbar";
-import { useState } from "react";
+import React, { useState } from "react";
 
-type Props = Readonly<{children: React.ReactNode;}>;
-export default function RootLayout({ children }: Props) {
+export type Type_sidebarSate = {
+    isSidebarOpen: boolean,
+    setIsSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>
+};
+export default function RootLayout({ children }: Readonly<{children: React.ReactNode;}>) {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     return (
         <>
