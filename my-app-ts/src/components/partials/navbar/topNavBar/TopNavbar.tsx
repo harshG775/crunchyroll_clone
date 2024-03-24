@@ -20,7 +20,7 @@ export default function TopNavbar(props:Type_sidebarSate) {
             <nav>
                 <ul className="w-full mx-auto flex items-center gap-2 p-2">
                     <li className="p-2 grid place-items-center">
-                        <button onClick={handleOpenSidebar}>
+                        <button className={isSidebarOpen ? "opacity-0" : "opacity-100"} onClick={handleOpenSidebar}>
                             <I className="text-3xl" icon="material-symbols:menu" />
                         </button>
                     </li>

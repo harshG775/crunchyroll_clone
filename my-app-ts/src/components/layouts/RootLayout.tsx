@@ -14,11 +14,11 @@ export default function RootLayout({ children }: Readonly<{children: React.React
             <TopNavbar isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen}/>
             <SideNavbar isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen}/>
             <main
-                className="
+                className={`
             z-0
-            xl:pl-64 transition-[padding] duration-200
+            ${isSidebarOpen ? "xl:pl-64" : "pl-0"} transition-[padding] duration-200
             bg-neutral-900
-            "
+            `}
             >
                 {children}
             </main>

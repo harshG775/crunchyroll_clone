@@ -45,7 +45,7 @@ export default function SideNavbar(props:Type_sidebarSate) {
                     {/* user */}
                 </nav>
             </aside>
-            <div className={`fixed inset-0 bg-neutral-900/50 z-40 ${isSidebarOpen?"":" hidden "}`} onClick={handleCloseSidebar}></div>
+            <div className={`fixed inset-0 bg-neutral-900/50 z-40 xl:hidden ${isSidebarOpen?"":"  hidden "}`} onClick={handleCloseSidebar}></div>
         </>
 
 	);
