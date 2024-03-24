@@ -1,9 +1,9 @@
 "use client"
-// import SearchBar from "./topNavBarItems/SearchBar";
 import Link from "next/link";
 import { I } from "@/components/icons/iconify/I";
 import UserProfileCard from "./topNavBarItems/UserProfileCard";
 import { Type_sidebarSate } from "@/components/layouts/RootLayout";
+import SearchBar from "@/components/ui/searchBar/SearchBar";
 
 export default function TopNavbar(props:Type_sidebarSate) {
     const { isSidebarOpen, setIsSidebarOpen } = props;
@@ -17,7 +17,7 @@ export default function TopNavbar(props:Type_sidebarSate) {
             bg-neutral-900
             sticky top-0
             `}>
-            <nav>
+            <nav className="relative">
                 <ul className="w-full mx-auto flex items-center gap-2 p-2">
                     <li className="p-2 grid place-items-center">
                         <button className={isSidebarOpen ? "opacity-0" : "opacity-100"} onClick={handleOpenSidebar}>
@@ -25,7 +25,7 @@ export default function TopNavbar(props:Type_sidebarSate) {
                         </button>
                     </li>
                     <li className="w-full"><Link href={"/"} className="text-2xl">CrunchesRoll</Link></li>
-                    {/* <li className="ml-auto"><SearchBar /></li> */}
+                    <li className="ml-auto"><SearchBar /></li>
                     <li><UserProfileCard/></li>
                 </ul>
             </nav>
