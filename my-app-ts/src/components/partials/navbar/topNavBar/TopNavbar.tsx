@@ -3,7 +3,18 @@
 import Link from "next/link";
 import { I } from "@/components/icons/iconify/I";
 import UserProfileCard from "./topNavBarItems/UserProfileCard";
+
+import { useStore } from "@/store/StoreProvider";
+import storeAction from "@/store/storeAction";
 export default function TopNavbar() {
+    const [state, dispatch] = useStore();
+    console.log(state);
+    const handleToggleSidebar = () => {
+        dispatch({
+            type: storeAction.TOGGLE_SIDEBAR,
+            payload: !state.isSidebarOpen,
+        });
+    }
 	return (
         <header className="
             z-40
@@ -14,7 +25,7 @@ export default function TopNavbar() {
             <nav>
                 <ul className="w-full mx-auto flex items-center gap-2 p-2">
                     <li className="p-2 grid place-items-center">
-                        <button>
+                        <button onClick={handleToggleSidebar}>
                             <I className="text-3xl" icon="material-symbols:menu" />
                         </button>
                     </li>

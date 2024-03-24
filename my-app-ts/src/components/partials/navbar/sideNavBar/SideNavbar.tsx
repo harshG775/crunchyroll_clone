@@ -3,7 +3,8 @@
 import { useState } from "react";
 import SidebarLinks from "./sidebar/SidebarLinks";
 import { I } from "@/components/icons/iconify/I";
-
+import { useStore } from "@/store/StoreProvider";
+import storeAction from "@/store/storeAction";
 const SidebarLinksData = [
 	{
         linkTo: "/home",
@@ -22,9 +23,12 @@ const SidebarLinksData = [
 	},
 ];
 export default function SideNavbar() {
-    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    const [{isSidebarOpen},dispatch] = useStore()
     const handleCloseSidebar = ()=>{
-        setIsSidebarOpen(false);
+        dispatch({
+            type: storeAction.TOGGLE_SIDEBAR,
+            payload: false,
+        });
     }
 	return (
         <>
@@ -35,7 +39,7 @@ export default function SideNavbar() {
                 ">
                 <div className="flex justify-between p-4">
                     <div>
-                        <button>
+                        <button onClick={handleCloseSidebar}>
                             <I className="text-3xl" icon="material-symbols:menu" />
                         </button>
                     </div>

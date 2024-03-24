@@ -10,6 +10,11 @@ export default function storeReducer(state: any, action: any) {
                 ...state,
                 count: payload,
             };
+        case storeAction.TOGGLE_SIDEBAR:
+            return {
+                ...state,
+                isSidebarOpen: payload,
+            };
         default:
             throw new Error();
     }
