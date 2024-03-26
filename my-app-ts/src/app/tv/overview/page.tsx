@@ -8,7 +8,7 @@ export default async function page({searchParams}: {searchParams: Type_searchPar
     try {
         const {data} = await axios_tmdb.get(`/tv/${searchParams?.id}`);
         return (
-            <OverviewHeader data={data} />
+            <OverviewHeader data={data} media_type="tv" />
         );
         
         
