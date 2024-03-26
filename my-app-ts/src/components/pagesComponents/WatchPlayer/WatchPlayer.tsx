@@ -11,7 +11,7 @@ export default function WatchPlayer({media_type, title, id }: Type_props) {
             <div>
                 <iframe
                     className="aspect-video w-full rounded-lg"
-                    src={`https://vidsrc.to/embed/movie/${id}`}
+                    src={`https://vidsrc.to/embed/${media_type}/${id}`}
                     title={title}
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
