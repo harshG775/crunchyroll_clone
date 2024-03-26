@@ -1,8 +1,10 @@
 import Image from "next/image";
 import { I } from "@/components/icons/iconify/I";
+import Link from "next/link";
 
 export type type_data = {
     backdrop_path: string,
+    id: number,
     title: string,
     overview: string,
     poster_path: string,
@@ -12,8 +14,9 @@ export type type_data = {
     genres: {id: number, name: string}[],
     runtime: number
 }
-export default function OverviewHeader({data}: {data: type_data}) {
+export default function OverviewHeader({data,media_type}: {data: type_data,media_type:"movie"|"tv"}) {
     const {backdrop_path,title, overview, poster_path} = data
+    // console.log(data)
     return (
         <>
             <div className="z-0 absolute inset-[0_0_auto_0] min-h-[30rem] bg-cover bg-[top_left] bg-no-repeat" style={{backgroundImage: `url(https://image.tmdb.org/t/p/original${backdrop_path})`}}></div>
@@ -42,7 +45,8 @@ export default function OverviewHeader({data}: {data: type_data}) {
                         </div>
                         <div className=" grid grid-cols-2 gap-2">
                             <button className=" rounded-md px-10 py-2 font-semibold bg-blue-500 hover:bg-blue-800 transition-colors duration-300">Add</button>
-                            <button className=" rounded-md px-10 py-2 font-medium bg-blue-700 hover:bg-blue-900 transition-colors duration-300">Watch</button>
+                            {/* <button className=" rounded-md px-10 py-2 font-medium bg-blue-700 hover:bg-blue-900 transition-colors duration-300">Watch</button> */}
+                            <Link href={`/${media_type}/watch?id=${data.id}&title=${data.title}`} className=" rounded-md px-10 py-2 font-medium bg-blue-700 hover:bg-blue-900 transition-colors duration-300">Watch</Link>
                         </div>
                     </div>
                     <div className="lg:col-span-2  grid gap-4 lg:grid-cols-3">
