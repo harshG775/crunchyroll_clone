@@ -14,10 +14,10 @@ const config: Config = {
                     "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
             },
             minWidth: {
-                "8xl": "90rem",
+                "8xl": "96rem",
             },
             maxWidth: {
-                "8xl": "90rem",
+                "8xl": "96rem",
             },
         },
     },
