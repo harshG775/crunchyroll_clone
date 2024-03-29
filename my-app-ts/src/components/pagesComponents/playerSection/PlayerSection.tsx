@@ -10,7 +10,7 @@ export type Type_props = {
 
 const PUBLIC_IFRAME_BASE_URL = process.env.PUBLIC_IFRAME_BASE_URL || "process.env.PUBLIC_IFRAME_BASE_URL";
 export default function PlayerSection({media_type, title, id }: Type_props) {
-    let baseUrl = PUBLIC_IFRAME_BASE_URL.replace("{domain}","me")
+    let baseUrl = PUBLIC_IFRAME_BASE_URL.replace("{domain}","to")
     return (
         <section>
             {media_type === "movie" ? (
