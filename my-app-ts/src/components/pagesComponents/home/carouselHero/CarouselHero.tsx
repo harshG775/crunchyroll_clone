@@ -6,7 +6,7 @@ export default async function CarouselHero() {
 
 		return (
 			<section
-				className="py-12"
+				className="p-2"
 				style={{ backgroundImage: "url(/carousel-mini.svg)" }}>
 				<Carousel results={resp.data.results} />
 			</section>

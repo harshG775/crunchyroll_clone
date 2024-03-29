@@ -1,14 +1,31 @@
 .swiper {
-    padding: 0rem 0rem 2.5rem 0rem;
+    cursor: grab;
+    /* padding: 0rem 0rem 2.5rem 0rem; */
 }
 @media (min-width: 768px) {
-    .swiper {
+    /* .swiper {
         padding: 0rem 0rem 2.5rem 0rem;
-    }
+    } */
 }
 
 .swiper-slide {
-/*  */
+    position: relative;
+    aspect-ratio: 16 / 9 ;
+    display: grid;
+    grid-template-columns: 1fr auto;
+}
+
+@media (min-width: 768px) {
+    .swiper-slide {
+        /* grid-template-columns: 1fr 1fr; */
+    }
+}
+@media (min-width: 1024px) {
+    .swiper-slide {
+        aspect-ratio: auto;
+        padding: 0 0.5rem;
+        grid-template-columns: 3fr 5fr;
+    }
 }
 
 .swiper-pagination {
