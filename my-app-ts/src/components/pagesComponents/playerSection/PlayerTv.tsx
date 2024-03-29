@@ -5,7 +5,7 @@ export type Type_props = {
     id: string;
 };
 
-export default function PlayerMovie({baseUrl, title, id }: Type_props) {
+export default function PlayerTv({baseUrl, title, id }: Type_props) {
     return (
         <div>
             <Iframe baseUrl={baseUrl} title={title} id={id} />
