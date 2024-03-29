@@ -13,7 +13,7 @@ export default function Iframe({ baseUrl, title, id }: Type_iframe_props) {
             title={title}
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            // referrerPolicy="origin"
+            referrerPolicy="origin"
             allowFullScreen
         ></iframe>
     );
