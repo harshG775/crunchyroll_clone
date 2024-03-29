@@ -1,3 +1,4 @@
+"use client"
 import PlayerMovie from "./PlayerMovie";
 import PlayerTv from "./PlayerTv";
 
