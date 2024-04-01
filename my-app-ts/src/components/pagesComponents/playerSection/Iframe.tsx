@@ -11,7 +11,6 @@ export default function Iframe({ media_src, title, id }: Type_iframe_props) {
             src={media_src}
             title={title}
             frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerPolicy="origin"
             allowFullScreen
         ></iframe>
