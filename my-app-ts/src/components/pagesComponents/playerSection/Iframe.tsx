@@ -13,9 +13,8 @@ export default function Iframe({ baseUrl, title, id }: Type_iframe_props) {
             title={title}
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerPolicy="origin"
+            referrerPolicy="origin-when-cross-origin"
             allowFullScreen
-            sandbox="allow-scripts allow-same-origin"
         ></iframe>
     );
 }
