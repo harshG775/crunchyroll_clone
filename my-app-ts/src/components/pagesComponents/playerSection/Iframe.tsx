@@ -15,6 +15,7 @@ export default function Iframe({ baseUrl, title, id }: Type_iframe_props) {
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerPolicy="origin"
             allowFullScreen
+            sandbox="allow-scripts allow-same-origin"
         ></iframe>
     );
 }
