@@ -1,14 +1,14 @@
 import Iframe from "./Iframe";
 export type Type_props = {
-    baseUrl: string;
+    media_src: string;
     title: string;
     id: string;
 };
 
-export default function PlayerTv({baseUrl, title, id }: Type_props) {
+export default function PlayerTv({media_src, title, id }: Type_props) {
     return (
         <div>
-            <Iframe baseUrl={baseUrl} title={title} id={id} />
+            <Iframe media_src={media_src} title={title} id={id} />
         </div>
     );
 }

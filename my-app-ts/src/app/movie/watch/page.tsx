@@ -7,12 +7,18 @@ type Type_props = {
 }
 export default function Watch({searchParams}: Type_props) {
     const { id, title}=searchParams;
+    const {IFRAME_BASE_URL} = process.env
     return (
         <div className="max-w-8xl p-4 mx-auto grid md:grid-cols-[3fr,1fr] gap-4">
-            <PlayerSection media_type="movie" title={title} id={id} />
-            <aside>
-                some data
-            </aside>
+            {IFRAME_BASE_URL && (
+                <PlayerSection
+                    media_type="movie"
+                    title={title}
+                    id={id}
+                    media_src={IFRAME_BASE_URL}
+                />
+            )}
+            <aside>some data</aside>
         </div>
     );
 }
