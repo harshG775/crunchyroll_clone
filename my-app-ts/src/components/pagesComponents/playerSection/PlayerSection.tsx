@@ -10,7 +10,7 @@ export type Type_props = {
 };
 
 export default function PlayerSection({media_type, title, id,media_src }: Type_props) {
-    const url = media_src.replace("{domain}", "me");
+    const url = media_src.replace("{domain}", "pro");
     return (
         <section>
             {media_type === "movie" ? (
