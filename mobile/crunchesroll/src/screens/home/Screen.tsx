@@ -4,7 +4,9 @@ import React from "react";
 export default function Home() {
     return (
         <ScrollView style={styles.main} contentInsetAdjustmentBehavior="automatic">
-            home
+            <Text>
+                Home
+            </Text>
         </ScrollView>
     );
 }
