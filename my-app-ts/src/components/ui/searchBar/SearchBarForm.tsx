@@ -6,8 +6,6 @@ import SearchResult from "./SearchResult"
 export default function SearchBarForm({setIsSearchBarOpen}:any) {
     // const { register, handleSubmit } = useForm();
     const [QInput, setQInput] = useState("");
-    const [media_type, setMedia_type] = useState("movie");
-    
     const [loading, setLoading] = useState(false);
     const [error,setError] = useState<any>(null);
     const [queryResult,setQueryResult] = useState<any>([]);
@@ -16,7 +14,7 @@ export default function SearchBarForm({setIsSearchBarOpen}:any) {
         try {
             setLoading(true);
             setError(null)
-            const {data} = await axios_tmdb(`https://api.themoviedb.org/3/search/${media_type}?query=${QInput}`);
+            const {data} = await axios_tmdb(`https://api.themoviedb.org/3/search/multi?query=${QInput}`);
             setQueryResult(data);
         } catch (error:any) {
             console.log(error);
@@ -25,13 +23,9 @@ export default function SearchBarForm({setIsSearchBarOpen}:any) {
             setLoading(false);
         }
     };
-
-    const handleMediaType=(mediaType:string)=>{
-        setMedia_type(mediaType)
-    }
 	return (
         <>
-            <form className="relative grid gap-2 p-2 border-b-2 border-neutral-50/10">
+            <form className="relative grid gap-2 p-2 border-b-2 border-neutral-50/10" onSubmit={(e) => e.preventDefault()}>
                 <div className="flex items-center ">
                     <label className="hidden" htmlFor="searchQuery">
                         search
@@ -51,36 +45,8 @@ export default function SearchBarForm({setIsSearchBarOpen}:any) {
                         <I icon="material-symbols:search" />
                     </button>
                 </div>
-                <div className="flex justify-between">
-                    <ul className="flex gap-2">
-                        {/* <li>
-                            <button className={media_type=="multi"?" text-blue-600":""} type="button" onClick={()=>handleMediaType("multi")}>All</button>
-                        </li> */}
-                        <li>
-                            <button
-                                className={
-                                    media_type == "movie"
-                                        ? " text-blue-600"
-                                        : ""
-                                }
-                                type="button"
-                                onClick={() => handleMediaType("movie")}
-                            >
-                                Movie
-                            </button>
-                        </li>
-                        <li>
-                            <button
-                                className={
-                                    media_type == "tv" ? " text-blue-600" : ""
-                                }
-                                type="button"
-                                onClick={() => handleMediaType("tv")}
-                            >
-                                Tv Show
-                            </button>
-                        </li>
-                    </ul>
+                <div className="flex justify-between py-1 text-sm">
+                    <div>Movies/TvShows</div>
                     <div>Filter</div>
                 </div>
             </form>
@@ -92,7 +58,6 @@ export default function SearchBarForm({setIsSearchBarOpen}:any) {
             )}
             {!loading ? (
                 <SearchResult
-                    media_type={media_type}
                     queryResult={queryResult}
                     setIsSearchBarOpen={setIsSearchBarOpen}
                 />
