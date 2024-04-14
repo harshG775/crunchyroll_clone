@@ -1,10 +1,12 @@
 import { I } from "@/components/icons/iconify/I";
 import axios_tmdb from "@/lib/axios_tmdb";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState, FormEvent } from "react";
 import SearchResult from "./SearchResult";
 import useDebounce from "@/hooks/useDebounce";
+import { useRouter } from "next/navigation";
 
 export default function SearchBarForm({ setIsSearchBarOpen }: any) {
+    const router = useRouter();
     // const { register, handleSubmit } = useForm();
     const [QInput, setQInput] = useState("");
     const [loading, setLoading] = useState(false);
@@ -31,11 +33,16 @@ export default function SearchBarForm({ setIsSearchBarOpen }: any) {
         handleQuery();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [deBounceSearch]);
+    const handleSearchSubmit = (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        router.push(`/filter?q=${QInput}`);
+        setIsSearchBarOpen(false);
+    };
     return (
         <>
             <form
                 className="relative grid gap-2 p-2 border-b-2 border-neutral-50/10"
-                onSubmit={(e) => e.preventDefault()}
+                onSubmit={handleSearchSubmit}
             >
                 <div className="flex items-center ">
                     <label className="hidden" htmlFor="searchQuery">
