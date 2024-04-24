@@ -7,26 +7,18 @@ export type Type_props = {
     title: string;
     id: string;
     media_src: string
+    mediaData?: any
 };
 
-export default function PlayerSection({media_type, title, id,media_src }: Type_props) {
+export default function PlayerSection({media_type, title, id,media_src, mediaData }: Type_props) {
     const url = media_src.replace("{domain}", "pro");
     return (
         <section>
             {media_type === "movie" ? (
                 <PlayerMovie title={title} id={id} media_src={`${url}/movie/${id}`}/>
             ) : (
-                <PlayerTv title={title} id={id} media_src={`${url}/tv/${id}/1-2`}/>
+                <PlayerTv title={title} id={id} url={url} mediaData={mediaData}/>
             )}
-            <div className="text-xs">
-                dub || sub
-            </div>
-            <div>
-                episode list
-            </div>
-            <div>
-                details, view and Ratings 
-            </div>
         </section>
     );
 }
