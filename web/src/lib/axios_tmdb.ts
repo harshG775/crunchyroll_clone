@@ -1,5 +1,6 @@
+import { envClient } from "@/utils/env/env.client";
 import axios from "axios";
-const PUBLIC_TMDB_BASE_URL = process.env.PUBLIC_TMDB_BASE_URL;
+const PUBLIC_TMDB_BASE_URL = envClient.NEXT_PUBLIC_TMDB_BASE_URL;
 const axios_tmdb= axios.create({
 	baseURL: PUBLIC_TMDB_BASE_URL,
 	timeout: 5000,

@@ -1,7 +1,4 @@
-// "use client";
-// import React, { useEffect, useState } from "react";
-// const MOVIE = process.env.PUBLIC_MOVIE_PLAYER_URL;
-// const TV = process.env.PUBLIC_TV_PLAYER_URL;
+
 import {Iframe_tv, Iframe_movie} from "./Iframe";
 export type Type_props = {
     domain: string;
