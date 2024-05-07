@@ -49,20 +49,30 @@
     } */
 }
 
+
+
+/* 
+    #dark
+    primary red 700
+    secondary Emerald 950
+    accent Emerald 700
+    text Teal 50
+    background Teal 1000
+*/
 @layer base {
     #light {
-      --text: 243deg 76% 5%;
-      --background: 240deg 60% 99%;
-      --primary: 156deg 72% 67%;
-      --secondary: 166deg 91% 91%;
-      --accent: 158deg 64% 48%;
+        --text: 187deg 60% 6%;
+        --background: 180deg 60% 98%;
+        --primary: 0deg 74% 58%;
+        --secondary: 166deg 91% 91%;
+        --accent: 161deg 93% 70%;
     }
     #dark {
-      --text: 243deg 76% 95%;
-      --background: 240deg 60% 1%;
-      --primary: 156deg 72% 33%;
-      --secondary: 166deg 91% 9%;
-      --accent: 158deg 64% 52%;
+        --text: 187deg 59% 94%;
+        --background: 180deg 60% 2%;
+        --primary: 0deg 74% 42%;
+        --secondary: 166deg 91% 9%;
+        --accent: 161deg 94% 30%;
     }
 }
   

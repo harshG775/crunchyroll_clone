@@ -28,7 +28,7 @@ export default function SideNavbar(props:Type_sidebarSate) {
 	return (
         <>
             <aside className={`
-                    z-50 fixed inset-y-0 left-0 w-64 bg-neutral-900
+                    z-50 fixed inset-y-0 left-0 w-64 bg-background
                     grid grid-rows-[auto,1fr]
                     ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} transition-transform duration-200
                 `}>
@@ -45,7 +45,7 @@ export default function SideNavbar(props:Type_sidebarSate) {
                     {/* user */}
                 </nav>
             </aside>
-            <div className={`fixed inset-0 bg-neutral-900/50 z-40 xl:hidden ${isSidebarOpen?"":"  hidden "}`} onClick={handleCloseSidebar}></div>
+            <div className={`fixed inset-0 bg-background/50 backdrop-blur z-40 xl:hidden ${isSidebarOpen?"":"  hidden "}`} onClick={handleCloseSidebar}></div>
         </>
 
 	);

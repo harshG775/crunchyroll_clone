@@ -17,7 +17,7 @@ export default function RootLayout({ children }: Readonly<{children: React.React
                 className={`
             z-0
             ${isSidebarOpen ? "xl:pl-64" : "pl-0"} transition-[padding] duration-200
-            bg-neutral-900
+            
             `}
             >
                 {children}

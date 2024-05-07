@@ -14,8 +14,8 @@ export default function TopNavbar(props:Type_sidebarSate) {
         <header className={`
             z-40
             ${isSidebarOpen ? "xl:pl-64" : ""} transition-[padding] duration-200
-            bg-neutral-900
-            sticky top-0
+            bg-background
+            sticky w-full top-0
             `}>
             <nav className="relative">
                 <ul className="w-full mx-auto flex items-center gap-2 p-2">

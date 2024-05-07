@@ -18,9 +18,6 @@ async function NowPlaying() {
 }
 export default function Movies() {
 	return (
-		<div className="mt-12">
-			<h1>Movies</h1>
-			<NowPlaying />
-		</div>
+		<NowPlaying />
 	);
 }

@@ -12,7 +12,7 @@ type Type_sectionProps = {
 export default function Section(props: Type_sectionProps) {
     const { title, iconName, results, media_type } = props;
     return (
-        <div className="bg-neutral-900 text-neutral-50 ">
+        <div className="bg-background text-text ">
             <SectionTitle
                 title={title}
                 iconName={iconName}

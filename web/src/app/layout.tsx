@@ -20,7 +20,8 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" id="dark">
-            <body className={inter.className}>
+            <body
+                className={`${inter.className}  `}>
                 <StoreProvider>
                     <TanstackQuery>
                         <Layout>{children}</Layout>
