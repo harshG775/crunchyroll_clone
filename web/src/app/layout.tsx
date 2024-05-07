@@ -12,6 +12,7 @@ export const metadata: Metadata = {
 };
 
 import Layout from "@/components/layouts/RootLayout";
+import TanstackQuery from "@/lib/TanstackQuery";
 export default function RootLayout({
     children,
 }: Readonly<{
@@ -20,11 +21,11 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={inter.className}>
-                <StoreProvider>
-                    <Layout>
-                        {children}
-                    </Layout>
-                </StoreProvider>
+                <TanstackQuery>
+                    <StoreProvider>
+                        <Layout>{children}</Layout>
+                    </StoreProvider>
+                </TanstackQuery>
             </body>
         </html>
     );
