@@ -8,16 +8,18 @@ const config: Config = {
     ],
     theme: {
         extend: {
-            backgroundImage: {
-                "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-                "gradient-conic":
-                    "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-            },
             minWidth: {
                 "8xl": "96rem",
             },
             maxWidth: {
                 "8xl": "96rem",
+            },
+            colors: {
+                text: "hsl(var(--text) / <alpha-value>)",
+                background: "hsl(var(--background) / <alpha-value>)",
+                primary: "hsl(var(--primary) / <alpha-value>)",
+                secondary: "hsl(var(--secondary) / <alpha-value>)",
+                accent: "hsl(var(--accent) / <alpha-value>)",
             },
         },
     },

@@ -49,4 +49,20 @@
     } */
 }
 
-
+@layer base {
+    #light {
+      --text: 243deg 76% 5%;
+      --background: 240deg 60% 99%;
+      --primary: 156deg 72% 67%;
+      --secondary: 166deg 91% 91%;
+      --accent: 158deg 64% 48%;
+    }
+    #dark {
+      --text: 243deg 76% 95%;
+      --background: 240deg 60% 1%;
+      --primary: 156deg 72% 33%;
+      --secondary: 166deg 91% 9%;
+      --accent: 158deg 64% 52%;
+    }
+}
+  

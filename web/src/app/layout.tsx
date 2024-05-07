@@ -19,13 +19,13 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en">
+        <html lang="en" id="dark">
             <body className={inter.className}>
-                <TanstackQuery>
-                    <StoreProvider>
+                <StoreProvider>
+                    <TanstackQuery>
                         <Layout>{children}</Layout>
-                    </StoreProvider>
-                </TanstackQuery>
+                    </TanstackQuery>
+                </StoreProvider>
             </body>
         </html>
     );
