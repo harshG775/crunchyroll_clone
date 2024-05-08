@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
-import StoreProvider from "@/store/StoreProvider";
-
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -20,13 +18,10 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" id="dark">
-            <body
-                className={`${inter.className}  `}>
-                <StoreProvider>
-                    <TanstackQuery>
-                        <Layout>{children}</Layout>
-                    </TanstackQuery>
-                </StoreProvider>
+            <body className={`${inter.className}  `}>
+                <TanstackQuery>
+                    <Layout>{children}</Layout>
+                </TanstackQuery>
             </body>
         </html>
     );

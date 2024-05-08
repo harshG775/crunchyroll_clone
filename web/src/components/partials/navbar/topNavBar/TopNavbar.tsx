@@ -2,13 +2,14 @@
 import Link from "next/link";
 import { I } from "@/components/icons/iconify/I";
 import UserProfileCard from "./topNavBarItems/UserProfileCard";
-import { Type_sidebarSate } from "@/components/layouts/RootLayout";
 import SearchBar from "@/components/ui/searchBar/SearchBar";
+import { sidebarState } from "@/store/zustand/sidebarState";
 
-export default function TopNavbar(props:Type_sidebarSate) {
-    const { isSidebarOpen, setIsSidebarOpen } = props;
+export default function TopNavbar() {
+    const isSidebarOpen =sidebarState((state) => state.isOpen);
+    const setIsSidebarOpen =sidebarState((state) => state.open);
     const handleOpenSidebar = () => {
-        setIsSidebarOpen(true)
+        setIsSidebarOpen()
     }
 	return (
         <header className={`

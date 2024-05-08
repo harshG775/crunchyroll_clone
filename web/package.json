@@ -22,7 +22,8 @@
     "react-hot-toast": "^2.4.1",
     "swiper": "^11.0.7",
     "tailwind-merge": "^2.2.1",
-    "zod": "^3.22.4"
+    "zod": "^3.22.4",
+    "zustand": "^4.5.2"
   },
   "devDependencies": {
     "@iconify/react": "^4.1.1",
