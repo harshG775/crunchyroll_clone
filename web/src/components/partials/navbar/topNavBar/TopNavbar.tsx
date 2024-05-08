@@ -1,6 +1,6 @@
 "use client"
 import Link from "next/link";
-import { I } from "@/components/icons/iconify/I";
+import Icon from "@/components/icons/lucide";
 import UserProfileCard from "./topNavBarItems/UserProfileCard";
 import SearchBar from "@/components/ui/searchBar/SearchBar";
 import { sidebarState } from "@/store/zustand/sidebarState";
@@ -20,12 +20,10 @@ export default function TopNavbar() {
             `}>
             <nav className="relative">
                 <ul className="w-full mx-auto flex items-center gap-2 p-2">
-                    <li className="p-2 grid place-items-center">
-                        <button className={isSidebarOpen ? "opacity-0" : "opacity-100"} onClick={handleOpenSidebar}>
-                            <I className="text-3xl" icon="material-symbols:menu" />
-                        </button>
+                    <li role="button" className={`${isSidebarOpen ? "w-[0rem]" : "w-12"}  overflow-hidden transition-[width] duration-200 grid place-items-center`} onClick={handleOpenSidebar}>
+                        <Icon name="menu" className="w-6 h-6 " />
                     </li>
-                    <li className="w-full"><Link href={"/"} className="text-2xl">CrunchesRoll</Link></li>
+                    <li className="w-full"><Link href={"/home"} className="text-2xl">CrunchesRoll</Link></li>
                     <li className="ml-auto"><SearchBar /></li>
                     <li><UserProfileCard/></li>
                 </ul>
