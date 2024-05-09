@@ -8,8 +8,6 @@ import CarouselItem,{Type_carouselProps} from "./CarouselItem";
 import React from "react";
 
 export default function Carousel({results,...props}:{results:Type_carouselProps[]}) {
-    console.log(results)
-
 	return (
 		<Swiper
             {...props}

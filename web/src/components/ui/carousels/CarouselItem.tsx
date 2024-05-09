@@ -33,7 +33,7 @@ export default function CarouselItem(props:Type_carouselProps) {
                     </p>
                     <div className="flex pb-4">
                         <Link 
-                        href={`/${media_type}/${id}?title=${Title?.replace(/ /g, "+")}`}
+                        href={`watch?media_type=${media_type}&id=${id}&title=${Title?.replace(/ /g, "+")}`}
                         className="rounded-md px-8 py-2 bg-primary">
                             play Now
                         </Link>

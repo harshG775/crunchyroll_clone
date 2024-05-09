@@ -10,6 +10,7 @@ type Type_searchParams = {
 export default async function page({searchParams}: {searchParams: Type_searchParams}) {
     try {
         const {media_type,id} = searchParams
+        console.log(searchParams)
         if (!media_type && !id) {
             return(
                 <div className="grid gap-2 place-content-center min-h-[calc(100vh-4rem)] text-center">
@@ -17,7 +18,7 @@ export default async function page({searchParams}: {searchParams: Type_searchPar
                 </div>
             )
         }
-        const {data} = await Axios_tmdb.get(`/movie/${searchParams?.id}`);
+        const {data} = await Axios_tmdb.get(`/${media_type}/${searchParams?.id}`);
         return (
             <div>
                 <Overview data={data} media_type={media_type as "movie" | "tv"} />
