@@ -1,0 +1,53 @@
+.swiper {
+    cursor: grab;
+    /* padding: 0rem 0rem 2.5rem 0rem; */
+}
+@media (min-width: 768px) {
+    /* .swiper {
+        padding: 0rem 0rem 2.5rem 0rem;
+    } */
+}
+
+.swiper-slide {
+    position: relative;
+    aspect-ratio: 10 / 9 ;
+    display: grid;
+    grid-template-columns: 1fr auto;
+}
+
+@media (min-width: 640px) {
+    .swiper-slide {
+        aspect-ratio: 16 / 9 ;
+        /* grid-template-columns: 1fr 1fr; */
+    }
+}
+@media (min-width: 768px) {
+    .swiper-slide {
+        /* grid-template-columns: 1fr 1fr; */
+    }
+}
+@media (min-width: 1024px) {
+    .swiper-slide {
+        aspect-ratio: auto;
+        padding: 0 0.5rem;
+        grid-template-columns: 3fr 5fr;
+    }
+}
+
+.swiper-pagination {
+    background: hsl(var(--background) / 1);
+    background: linear-gradient(0deg, hsl(var(--background) / 1) 0%, hsl(var(--background) / 0)) 100%;
+    bottom: -2px !important;
+    /* Styles for the main pagination container */
+}
+
+.swiper-pagination-bullets {
+    
+    /* Styles for the container holding the pagination bullets */
+}
+
+.swiper-pagination-horizontal .swiper-pagination-bullet {
+    border-radius: 0;
+    background-color: hsl(var(--primary) / 1);
+    /* Styles for individual horizontal pagination bullets */
+}

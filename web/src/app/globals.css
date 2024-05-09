@@ -2,65 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-@media (prefers-color-scheme: light) {
-    :root {
-        color-scheme: light;
-    }
-}
-@media (prefers-color-scheme: dark) {
-    :root {
-        color-scheme: dark;
-    }
-}
-@layer utilities {
-    .text-balance {
-        text-wrap: balance;
-    }
-}
-
-@layer components {
-    .scrollbar-thin {
-        scrollbar-width: thin;
-    }
-    .scrollbar-thin {
-        scrollbar-width: thin;
-    }
-    /* .scrollbar-thin {
-        --sb-track-color: #232E33;
-        --sb-thumb-color: #c32e2e;
-        --sb-size: 8px;
-    }
-    .scrollbar-thin::-webkit-scrollbar {
-        height: 5px;
-        width: var(--sb-size)
-    }
-    .scrollbar-thin::-webkit-scrollbar-track {
-        background: var(--sb-track-color);
-        border-radius: 5px;
-    }
-    .scrollbar-thin::-webkit-scrollbar-thumb {
-        background: var(--sb-thumb-color);
-        border-radius: 5px;
-    }
-    @supports not selector(::-webkit-scrollbar) {
-        .scrollbar-thin {
-            scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
-        }
-    } */
-}
-
-
-
-/* 
-    #dark
-    primary red 700
-    secondary Emerald 950
-    accent Emerald 700
-    text Teal 50
-    background Teal 1000
-*/
 @layer base {
+    /* 
+        #dark
+        primary red 700
+        secondary Emerald 950
+        accent Emerald 700
+        text Teal 50
+        background Teal 1000
+    */
+
     #light {
+        color-scheme: light;
         --text: 187deg 60% 6%;
         --background: 180deg 60% 98%;
         --primary: 0deg 74% 58%;
@@ -68,6 +21,7 @@
         --accent: 161deg 93% 70%;
     }
     #dark {
+        color-scheme: dark;
         --text: 187deg 59% 94%;
         --background: 180deg 60% 2%;
         --primary: 0deg 74% 42%;
@@ -75,4 +29,27 @@
         --accent: 161deg 94% 30%;
     }
 }
-  
+
+@layer utilities {
+    .text-balance {
+        text-wrap: balance;
+    }
+}
+
+@layer components {
+    /* scrollbar-width auto */
+    .scrollbar-thin {
+        --sb-thumb-color: var(--primary);
+        --sb-track-color: var(--background);
+        --sb-width-type: thin;
+    }
+    .scrollbar-color {
+        scrollbar-color: hsl(var(--sb-thumb-color)) hsl(var(--sb-track-color));
+    }
+    @supports (scrollbar-width: auto) {
+        .scrollbar-thin {
+            
+            scrollbar-width: var(--sb-width-type);
+        }
+    }
+}
