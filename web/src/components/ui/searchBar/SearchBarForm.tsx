@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import { Axios_tmdb } from "@/lib/Axios";
 import Icon from "@/components/icons/lucide";
 
-
 export default function SearchBarForm({ setIsSearchBarOpen }: any) {
     const router = useRouter();
     // const { register, handleSubmit } = useForm();
@@ -20,9 +19,8 @@ export default function SearchBarForm({ setIsSearchBarOpen }: any) {
             try {
                 setLoading(true);
                 setError(null);
-                const { data } = await Axios_tmdb(
-                    `https://api.themoviedb.org/3/search/multi?query=${QInput}`
-                );
+                setQueryResult([]);
+                const { data } = await Axios_tmdb(`/search/multi?query=${QInput}`);
                 setQueryResult(data);
             } catch (error: any) {
                 console.log(error);
@@ -65,7 +63,7 @@ export default function SearchBarForm({ setIsSearchBarOpen }: any) {
                     </button>
                 </div>
                 <div className="flex justify-between py-1 text-sm">
-                    <div>Movies/TvShows</div>
+                    <div>Movie/TvShow</div>
                     <div>Filter</div>
                 </div>
             </form>
