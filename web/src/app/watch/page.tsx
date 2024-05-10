@@ -1,8 +1,7 @@
 import Recommended from "@/components/pageComponents/watch/Recommended";
 import Similar from "@/components/pageComponents/watch/Similar";
 
-import Overview from "@/components/pageComponents/watch/Overview";
-import Player from "@/components/pageComponents/watch/Player";
+import Overview from "@/components/pageComponents/watch/overview/Overview";
 import { Axios_tmdb } from "@/lib/Axios";
 type Type_searchParams = {
     id: string;
@@ -25,10 +24,7 @@ export default async function Watch({searchParams}: {searchParams: Type_searchPa
         return (
             <main>
                 <div className="max-w-8xl mx-auto grid lg:grid-cols-[4fr_1fr]">
-                    <section>
-                        <Player data={data} media_type={media_type as "movie" | "tv"}/>
-                        {/* <Overview data={data} media_type={media_type as "movie" | "tv"} /> */}
-                    </section>
+                    <Overview data={data} media_type={media_type as "movie" | "tv"}/>
                     <Recommended id={1}/>
                 </div>
                 <div className="max-w-8xl mx-auto grid lg:grid-cols-[4fr_1fr]">
