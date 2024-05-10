@@ -1,5 +1,5 @@
+import Icon from "@/components/icons/lucide";
 import Image from "next/image";
-// import { I } from "@/components/icons/iconify/I";
 import Link from "next/link";
 
 export type type_data = {
@@ -36,11 +36,11 @@ export default function Overview({data,media_type}: {data: type_data,media_type:
                         <div className=" backdrop-blur-xl bg-neutral-950/60 rounded-md p-2 grid gap-2">
                             <div className="px-4 text-2xl">{data.vote_average}/10</div>
                             <div className="grid grid-cols-5 px-4 text-3xl text-yellow-500">
-                                {/* <I className="cursor-pointer" icon="ic:round-star" />
-                                <I className="cursor-pointer" icon="ic:round-star" />
-                                <I className="cursor-pointer" icon="ic:round-star" />
-                                <I className="cursor-pointer" icon="ic:round-star" />
-                                <I className="cursor-pointer" icon="ic:round-star" /> */}
+                                <Icon className="cursor-pointer" name="Star" />
+                                <Icon className="cursor-pointer" name="Star" />
+                                <Icon className="cursor-pointer" name="Star" />
+                                <Icon className="cursor-pointer" name="Star" />
+                                <Icon className="cursor-pointer" name="Star" />
                             </div>
                         </div>
                         <div className=" grid grid-cols-2 gap-2">

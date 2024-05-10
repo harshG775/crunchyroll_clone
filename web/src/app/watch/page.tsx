@@ -1,6 +1,7 @@
 // import OverviewHeader from "@/components/pagesComponents/overview/OverviewHeader";
 
 import Overview from "@/components/pageComponents/watch/Overview";
+import Player from "@/components/pageComponents/watch/Player";
 import { Axios_tmdb } from "@/lib/Axios";
 type Type_searchParams = {
     id: string;
@@ -21,7 +22,8 @@ export default async function page({searchParams}: {searchParams: Type_searchPar
         const {data} = await Axios_tmdb.get(`/${media_type}/${searchParams?.id}`);
         return (
             <div>
-                <Overview data={data} media_type={media_type as "movie" | "tv"} />
+                <Player data={data} media_type={media_type as "movie" | "tv"}/>
+                {/* <Overview data={data} media_type={media_type as "movie" | "tv"} /> */}
             </div>
         );
         
