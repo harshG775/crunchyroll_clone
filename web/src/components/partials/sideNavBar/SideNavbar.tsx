@@ -41,14 +41,6 @@ export default function SideNavbar() {
                     </li>
                     <li className={`w-full xl:collapse visible`}><Link href={"/home"} className="text-2xl">CrunchesRoll</Link></li>
                 </ul>
-                {/* <div className="flex justify-between p-4">
-                    <div>
-                        <button onClick={handleCloseSidebar}>
-                            <Icon name="Menu" className="text-3xl"/>
-                        </button>
-                    </div>
-                    <div className="visible lg:collapse w-full"><Link href={"/home"} className="text-2xl">CrunchesRoll</Link></div>
-                </div> */}
                 <nav className="overflow-y-auto scrollbar-thin">
                     <SidebarLinks linksData={SidebarLinksData} />
                     {/* user */}
