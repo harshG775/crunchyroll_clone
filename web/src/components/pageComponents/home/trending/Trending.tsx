@@ -9,13 +9,13 @@ import React, { useState } from "react";
 export default function Trending() {
     const [mediaType, setMediaType] = useState("all");
     const [timeWindow, setTimeWindow] = useState("day");
-    const { data,status,isError } = useQuery({
+    const { data,status} = useQuery({
         queryKey: ["trending", mediaType, timeWindow],
         queryFn: () => Axios_tmdb.get(`/trending/${mediaType}/${timeWindow}?language=en-US`),
         
     });
     return (
-        <section className=" container transition-[max-width] duration-300 mx-auto p-2">
+        <section className="p-2">
             <div className="grid gap-2 grid-cols-[1fr] sm:grid-cols-[1fr_auto]">
                 <h2 className="text-2xl font-semibold">Trending</h2>
                 <div className="flex justify-between flex-wrap gap-2">

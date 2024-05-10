@@ -9,11 +9,11 @@ export default function Home() {
             <header className="min-h-96">
                 <Hero />
             </header>
-            <div className=" lg:max-w-8xl transition-[max-width] duration-300 mx-auto grid lg:grid-cols-[1fr_320px] gap-2">
+            <div className="max-w-8xl mx-auto transition-[max-width] duration-300 grid lg:grid-cols-[4fr_1fr] gap-2">
                 <Trending />
                 <TopRated />
             </div>
-            <div className=" lg:max-w-8xl transition-[max-width] duration-300 mx-auto grid lg:grid-cols-[1fr_320px] gap-2">
+            <div className="max-w-8xl mx-auto transition-[max-width] duration-300 grid lg:grid-cols-[4fr_1fr] gap-2">
                 <Popular />
                 <section>
                     <h2>upcoming</h2>

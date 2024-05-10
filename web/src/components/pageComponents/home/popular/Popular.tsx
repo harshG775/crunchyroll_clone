@@ -9,13 +9,13 @@ import React, { useState } from "react";
 
 export default function Popular() {
     const [mediaType, setMediaType] = useState("movie");
-    const { data,status,isError } = useQuery({
+    const { data,status } = useQuery({
         queryKey: ["popular", mediaType],
         queryFn: () => Axios_tmdb.get(`/${mediaType}/popular?language=en-US&page=1`),
         
     });
     return (
-        <section className="container transition-[max-width] duration-300 mx-auto p-2">
+        <section className="p-2">
             <div className="grid gap-2 grid-cols-[1fr] sm:grid-cols-[1fr_auto]">
                 <h2 className="text-2xl font-semibold">Popular</h2>
                 <div className="flex justify-between flex-wrap gap-2">
