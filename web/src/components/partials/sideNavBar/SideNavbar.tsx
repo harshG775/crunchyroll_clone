@@ -3,6 +3,7 @@
 import { sidebarState } from "@/store/zustand/sidebarState";
 import SidebarLinks from "./sidebar/SidebarLinks";
 import Icon from "@/components/icons/lucide";
+import Link from "next/link";
 const SidebarLinksData = [
 	{
         linkTo: "/home",
@@ -29,18 +30,25 @@ export default function SideNavbar() {
 	return (
         <>
             <aside className={`
-                    z-50 fixed inset-y-0 left-0 w-64 bg-background
+                    z-50 fixed inset-y-0 left-0 sm:w-60 w-full bg-background
                     grid grid-rows-[auto,1fr]
-                    ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} transition-transform duration-200
+                    ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"} transition-transform duration-300
                 `}>
-                <div className="flex justify-between p-4">
+
+                <ul className="w-full mx-auto flex items-center gap-2 p-2">
+                    <li role="button" className={`${isSidebarOpen ? "w-12" : "w-[0rem] "}  overflow-hidden transition-[width] duration-200 grid place-items-center`} onClick={handleCloseSidebar}>
+                        <Icon name="Menu" className="w-6 h-6 " />
+                    </li>
+                    <li className={`w-full xl:collapse visible`}><Link href={"/home"} className="text-2xl">CrunchesRoll</Link></li>
+                </ul>
+                {/* <div className="flex justify-between p-4">
                     <div>
                         <button onClick={handleCloseSidebar}>
                             <Icon name="Menu" className="text-3xl"/>
                         </button>
                     </div>
-                    <div>LOGO</div>
-                </div>
+                    <div className="visible lg:collapse w-full"><Link href={"/home"} className="text-2xl">CrunchesRoll</Link></div>
+                </div> */}
                 <nav className="overflow-y-auto scrollbar-thin">
                     <SidebarLinks linksData={SidebarLinksData} />
                     {/* user */}

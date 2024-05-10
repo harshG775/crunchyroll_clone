@@ -12,7 +12,7 @@ export default function RootLayout({ children }: Readonly<{children: React.React
             <main
                 className={`
             z-0
-            ${isSidebarOpen ? "xl:pl-64" : "pl-0"} transition-[padding] duration-200
+            ${isSidebarOpen ? "xl:pl-60" : "pl-0"} transition-[padding] duration-300
             
             `}
             >

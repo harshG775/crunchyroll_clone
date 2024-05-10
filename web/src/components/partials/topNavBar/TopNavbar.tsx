@@ -14,7 +14,7 @@ export default function TopNavbar() {
 	return (
         <header className={`
             z-40
-            ${isSidebarOpen ? "xl:pl-64" : ""} transition-[padding] duration-200
+            ${isSidebarOpen ? "xl:pl-64" : ""} transition-[padding] duration-300
             bg-background
             sticky w-full top-0
             `}>
