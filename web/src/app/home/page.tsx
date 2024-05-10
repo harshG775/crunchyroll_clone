@@ -5,7 +5,7 @@ import Trending from "@/components/pageComponents/home/trending/Trending";
 
 export default function Home() {
     return (
-        <main className=" space-y-10">
+        <main className=" space-y-10 p-2">
             <header className="min-h-96">
                 <Hero />
             </header>
