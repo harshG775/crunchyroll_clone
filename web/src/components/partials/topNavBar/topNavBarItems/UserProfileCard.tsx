@@ -15,7 +15,7 @@ export default function UserProfileCard() {
                     <Button>SignUp</Button>
                 </Link>
             ) : (
-                <Icon name="user" />
+                <Icon name="User" />
             )}
         </div>
     );

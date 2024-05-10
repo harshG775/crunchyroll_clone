@@ -36,7 +36,7 @@ export default function SideNavbar() {
                 <div className="flex justify-between p-4">
                     <div>
                         <button onClick={handleCloseSidebar}>
-                            <Icon name="menu" className="text-3xl"/>
+                            <Icon name="Menu" className="text-3xl"/>
                         </button>
                     </div>
                     <div>LOGO</div>

@@ -21,7 +21,7 @@ export default function TopNavbar() {
             <nav className="relative">
                 <ul className="w-full mx-auto flex items-center gap-2 p-2">
                     <li role="button" className={`${isSidebarOpen ? "w-[0rem]" : "w-12"}  overflow-hidden transition-[width] duration-200 grid place-items-center`} onClick={handleOpenSidebar}>
-                        <Icon name="menu" className="w-6 h-6 " />
+                        <Icon name="Menu" className="w-6 h-6 " />
                     </li>
                     <li className="w-full"><Link href={"/home"} className="text-2xl">CrunchesRoll</Link></li>
                     <li className="ml-auto"><SearchBar /></li>

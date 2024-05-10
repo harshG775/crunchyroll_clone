@@ -59,7 +59,7 @@ export default function SearchBarForm({ setIsSearchBarOpen }: any) {
                     />
 
                     <button className="absolute right-4 text-neutral-950 bg-neutral-50 p-2 text-xl rounded ">
-                        <Icon name="search" className="w-6 h-6"/>
+                        <Icon name="Search" className="w-6 h-6"/>
                     </button>
                 </div>
                 <div className="flex justify-between py-1 text-sm">
