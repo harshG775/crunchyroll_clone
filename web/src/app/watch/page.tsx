@@ -1,4 +1,5 @@
-// import OverviewHeader from "@/components/pagesComponents/overview/OverviewHeader";
+import Recommended from "@/components/pageComponents/watch/Recommended";
+import Similar from "@/components/pageComponents/watch/Similar";
 
 import Overview from "@/components/pageComponents/watch/Overview";
 import Player from "@/components/pageComponents/watch/Player";
@@ -8,7 +9,8 @@ type Type_searchParams = {
     media_type: string;
     title: string;
 }
-export default async function page({searchParams}: {searchParams: Type_searchParams}) {
+
+export default async function Watch({searchParams}: {searchParams: Type_searchParams}) {
     try {
         const {media_type,id} = searchParams
         console.log(searchParams)
@@ -21,12 +23,22 @@ export default async function page({searchParams}: {searchParams: Type_searchPar
         }
         const {data} = await Axios_tmdb.get(`/${media_type}/${searchParams?.id}`);
         return (
-            <div>
-                <Player data={data} media_type={media_type as "movie" | "tv"}/>
-                {/* <Overview data={data} media_type={media_type as "movie" | "tv"} /> */}
-            </div>
+            <main>
+                <div className="max-w-8xl mx-auto grid lg:grid-cols-[4fr_1fr]">
+                    <section>
+                        <Player data={data} media_type={media_type as "movie" | "tv"}/>
+                        {/* <Overview data={data} media_type={media_type as "movie" | "tv"} /> */}
+                    </section>
+                    <Recommended id={1}/>
+                </div>
+                <div className="max-w-8xl mx-auto grid lg:grid-cols-[4fr_1fr]">
+                    <section className="lg:order-1 order-2">
+                        comments
+                    </section>
+                    <Similar id={12} className="lg:order-2 order-1"/>
+                </div>
+            </main>
         );
-        
         
     } catch (error: any) {
         return (
@@ -36,5 +48,4 @@ export default async function page({searchParams}: {searchParams: Type_searchPar
             </div>
         );
     }
-    
 }
