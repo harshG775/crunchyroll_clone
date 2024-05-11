@@ -12,7 +12,6 @@ type Type_searchParams = {
 export default async function Watch({searchParams}: {searchParams: Type_searchParams}) {
     try {
         const {media_type,id} = searchParams
-        console.log(searchParams)
         if (!media_type && !id) {
             return(
                 <div className="grid gap-2 place-content-center min-h-[calc(100vh-4rem)] text-center">
