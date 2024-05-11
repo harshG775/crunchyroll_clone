@@ -1,5 +1,4 @@
 {
-    "root": true,
     "extends": ["next/babel","next/core-web-vitals"],
     "rules": {
         "no-unused-vars": [
