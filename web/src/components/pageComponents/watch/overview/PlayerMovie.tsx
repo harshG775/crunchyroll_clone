@@ -1,6 +1,6 @@
 import React from "react";
 import { Iframe_movie } from "./Iframe";
-// import { MovieDetailsType } from "@/types/DetailsType";
+import { MovieDetailsType } from "@/types/DetailsType";
 enum movieStatus {
     Rumored = "Rumored",
     Planned = "Planned",
@@ -10,7 +10,7 @@ enum movieStatus {
     InTheaters = "In Theaters",
 }
 export default function PlayerMovie({ data }: { data: any }) {
-    const { id, title, status } = data;
+    const { id, title, status } = data as MovieDetailsType;
     return (
         <div>
             {status === movieStatus.Released ? (
