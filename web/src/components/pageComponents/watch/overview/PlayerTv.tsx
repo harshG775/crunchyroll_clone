@@ -38,13 +38,13 @@ export default function PlayerTv({ data }: any) {
             {status === tvStatus.ReturningSeries && (
                 <div className="grid lg:grid-cols-[1fr_320px]">
                     <div>
-                        {/* <Iframe_tv
+                        <Iframe_tv
                             domain="pro"
                             title={name}
                             id={id}
                             season={currentSeason}
                             episode={currentEpisode}
-                        /> */}
+                        />
                     </div>
                     <div>
                         <div className="grid grid-cols-2">
@@ -106,13 +106,13 @@ export default function PlayerTv({ data }: any) {
             {status === tvStatus.Ended && (
                 <div className="grid lg:grid-cols-[1fr_320px]">
                     <div>
-                        {/* <Iframe_tv
+                        <Iframe_tv
                             domain="pro"
                             title={name}
                             id={id}
                             season={currentSeason}
                             episode={currentEpisode}
-                        /> */}
+                        />
                     </div>
                     <div>
                         <div className="grid grid-cols-2">
