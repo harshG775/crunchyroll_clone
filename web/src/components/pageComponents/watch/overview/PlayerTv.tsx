@@ -20,7 +20,7 @@ function ReturningSeries() {
 }
 
 export default function PlayerTv({ data }: any) {
-    const { seasons, id, name ,next_episode_to_air} = data as tvDetailsType;
+    const { seasons, id, name, next_episode_to_air } = data as tvDetailsType;
 
     const [currentSeason, setCurrentSeason] = useState(1);
     const [currentEpisode, setCurrentEpisode] = useState(1);
@@ -30,7 +30,7 @@ export default function PlayerTv({ data }: any) {
         { length: seasons[currentSeason - 1].episode_count },
         (_, i) => i + 1
     );
-    // const airingEP = status===tvStatus.InProduction? 
+    // const airingEP = status===tvStatus.InProduction?
     return (
         <div>
             {status === tvStatus.InProduction ||
@@ -38,13 +38,13 @@ export default function PlayerTv({ data }: any) {
             {status === tvStatus.ReturningSeries && (
                 <div className="grid lg:grid-cols-[1fr_320px]">
                     <div>
-                        <Iframe_tv
+                        {/* <Iframe_tv
                             domain="pro"
                             title={name}
                             id={id}
                             season={currentSeason}
                             episode={currentEpisode}
-                        />
+                        /> */}
                     </div>
                     <div>
                         <div className="grid grid-cols-2">
@@ -73,25 +73,32 @@ export default function PlayerTv({ data }: any) {
                             </select>
                         </div>
                         <ul className="grid p-2 max-h-60 overflow-y-auto scrollbar-thin scrollbar-color">
-                            {episodes.slice(0, next_episode_to_air.episode_number-1).map((ep) => (
-                                <>
-                                    <li
-                                        key={ep}
-                                        onClick={() => setCurrentEpisode(ep)}
-                                        role="button"
-                                        className={` p-1 ${
-                                            currentEpisode === ep
-                                                ? "bg-primary/80"
-                                                : ep % 2 === 0
-                                                ? "bg-primary/20"
-                                                : "bg-primary/10"
-                                        } hover:bg-primary/50 focus:bg-primary/50`}
-                                    >
-                                        
-                                        episode:{ep}
-                                    </li>
-                                </>
-                            ))}
+                            {next_episode_to_air &&
+                                episodes
+                                    .slice(
+                                        0,
+                                        next_episode_to_air.episode_number - 1
+                                    )
+                                    .map((ep) => (
+                                        <>
+                                            <li
+                                                key={ep}
+                                                onClick={() =>
+                                                    setCurrentEpisode(ep)
+                                                }
+                                                role="button"
+                                                className={` p-1 ${
+                                                    currentEpisode === ep
+                                                        ? "bg-primary/80"
+                                                        : ep % 2 === 0
+                                                        ? "bg-primary/20"
+                                                        : "bg-primary/10"
+                                                } hover:bg-primary/50 focus:bg-primary/50`}
+                                            >
+                                                episode:{ep}
+                                            </li>
+                                        </>
+                                    ))}
                         </ul>
                     </div>
                 </div>
@@ -99,13 +106,13 @@ export default function PlayerTv({ data }: any) {
             {status === tvStatus.Ended && (
                 <div className="grid lg:grid-cols-[1fr_320px]">
                     <div>
-                        <Iframe_tv
+                        {/* <Iframe_tv
                             domain="pro"
                             title={name}
                             id={id}
                             season={currentSeason}
                             episode={currentEpisode}
-                        />
+                        /> */}
                     </div>
                     <div>
                         <div className="grid grid-cols-2">

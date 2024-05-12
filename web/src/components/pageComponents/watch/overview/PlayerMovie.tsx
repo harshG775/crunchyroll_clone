@@ -24,18 +24,3 @@ export default function PlayerMovie({ data }: { data: any }) {
     );
 }
 
-//
-// function getIsReleasedMovie(releaseDate: string) {
-//     // Convert release date string to a Date object
-//     const releaseDateTime = new Date(releaseDate);
-
-//     // Get the current date
-//     const currentDate = new Date();
-
-//     // Compare the release date with the current date
-//     if (currentDate >= releaseDateTime) {
-//         return true; // Release date has passed
-//     } else {
-//         return false; // Release date is in the future
-//     }
-// }
