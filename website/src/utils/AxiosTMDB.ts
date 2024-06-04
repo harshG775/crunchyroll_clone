@@ -13,25 +13,32 @@ export const Axios_tmdb = axios.create({
     timeout: 5000,
 });
 
+type mediaType = "all" | "movie" | "tv" | "person";
+
 type TrendingPropsType = {
-    mediaType: "all" | "movie" | "tv" | "person";
+    mediaType: mediaType;
     time_window?: "day" | "week";
 };
-export function getTrending({
-    mediaType,
-    time_window = "day",
-}: TrendingPropsType) {
+export function getTrending({ mediaType,time_window = "day" }: TrendingPropsType) {
     return Axios_tmdb.get(
         `/trending/${mediaType}/${time_window}?language=en-US`
     );
 }
 
 type TopRatedPropsType = {
-    mediaType: "all" | "movie" | "tv" | "person";
+    mediaType: mediaType;
     time_window?: "day" | "week";
 };
 export function getTopRated({ mediaType }: TopRatedPropsType) {
     return Axios_tmdb.get(
         `/${mediaType}/top_rated?language=en-US&region=IN&page=1`
     );
+}
+
+type InfoPropsType = {
+    mediaType: mediaType;
+    id: string;
+};
+export function getInfoById({ mediaType ,id  }: InfoPropsType) {
+    return Axios_tmdb.get(`/${mediaType}/${id}?language=en-US`);
 }
