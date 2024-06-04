@@ -10,8 +10,10 @@ type FilesPlayingProps = {
 };
 export default function FilesPlaying({ title, seasons }: FilesPlayingProps) {
     seasons = seasons.filter((season) => {
+        const currentData = new Date();
+        const air_date = new Date(season.air_date);
         if (season.name !== "Specials") {
-            return season.episode_count > 0;
+            return season.air_date && air_date <= currentData;
         }
     });
     const currentSeason = playerState((state) => state.currentSeason);
@@ -33,7 +35,10 @@ export default function FilesPlaying({ title, seasons }: FilesPlayingProps) {
                             className="py-2 px-1 rounded-md "
                         >
                             {seasons.map((season) => (
-                                <option key={season.season_number} value={season.season_number}>
+                                <option
+                                    key={season.season_number}
+                                    value={season.season_number}
+                                >
                                     {season.name}
                                 </option>
                             ))}
@@ -42,24 +47,26 @@ export default function FilesPlaying({ title, seasons }: FilesPlayingProps) {
                 />
                 <h2 className="line-clamp-1 text-sm text-foreground/50 grid items-center grid-cols-[2fr_1fr] p-2 ">
                     {title}
-                    <span>Episodes: {seasons[currentSeason-1].episode_count }</span>
+                    <span>
+                        Episodes: {seasons[currentSeason - 1].episode_count}
+                    </span>
                 </h2>
             </div>
             <ul>
                 {Array.from(
-                    { length: seasons[currentSeason-1].episode_count },
+                    { length: seasons[currentSeason - 1].episode_count },
                     (_, i) => i
                 ).map((episode) => (
-                    <li key={episode+1} className="p-1">
+                    <li key={episode + 1} className="p-1">
                         <Button
-                            onClick={() => setCurrentEpisode(episode+1)}
+                            onClick={() => setCurrentEpisode(episode + 1)}
                             className={`${
-                                episode+1 === currentEpisode
+                                episode + 1 === currentEpisode
                                     ? "text-primary-foreground  bg-primary/80 hover:bg-primary/90"
                                     : "text-secondary-foreground bg-secondary/80 hover:bg-secondary/90 "
                             } cursor-pointer text-sm px-2 py-1 w-full`}
                         >
-                            {episode+1}
+                            {episode + 1}
                         </Button>
                     </li>
                 ))}
