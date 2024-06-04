@@ -1,5 +1,8 @@
+"use client";
+
 import { Status } from "@/types/TvDetailsType";
 import { Iframe_tv } from "./Iframe";
+import { playerState } from "@/store/zustand/PlayerState";
 type PlayerType = {
     status: Status;
     id: number;
@@ -12,22 +15,25 @@ export default function Player({
     title,
     backdrop_path,
 }: PlayerType) {
+    const currentSeason = playerState((state) => state.currentSeason);
+    const currentEpisode = playerState((state) => state.currentEpisode);
+
     return (
         <header className="">
             {/* <BackgroundImage
                 url={`https://image.tmdb.org/t/p/w500${backdrop_path}`}
             > */}
-                {status === "Returning Series" ? (
-                    <Iframe_tv
-                        domain="pro"
-                        title={title}
-                        id={id}
-                        season={1}
-                        episode={1}
-                    />
-                ) : (
-                    <p>{status}</p>
-                )}
+            {status === "Returning Series" ? (
+                <Iframe_tv
+                    domain="pro"
+                    title={title}
+                    id={id}
+                    season={currentSeason}
+                    episode={currentEpisode}
+                />
+            ) : (
+                <p>{status}</p>
+            )}
             {/* </BackgroundImage> */}
 
             <p>Player</p>
