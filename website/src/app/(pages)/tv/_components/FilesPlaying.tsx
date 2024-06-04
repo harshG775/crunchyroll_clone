@@ -50,16 +50,16 @@ export default function FilesPlaying({ title, seasons }: FilesPlayingProps) {
                     { length: seasons[currentSeason-1].episode_count },
                     (_, i) => i
                 ).map((episode) => (
-                    <li key={episode} className="p-1">
+                    <li key={episode+1} className="p-1">
                         <Button
-                            onClick={() => setCurrentEpisode(episode)}
+                            onClick={() => setCurrentEpisode(episode+1)}
                             className={`${
-                                episode === currentEpisode
+                                episode+1 === currentEpisode
                                     ? "text-primary-foreground  bg-primary/80 hover:bg-primary/90"
                                     : "text-secondary-foreground bg-secondary/80 hover:bg-secondary/90 "
                             } cursor-pointer text-sm px-2 py-1 w-full`}
                         >
-                            {episode}
+                            {episode+1}
                         </Button>
                     </li>
                 ))}
