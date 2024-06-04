@@ -17,12 +17,22 @@ export default async function page({ params }: { params: { id: string } }) {
         console.log(data);
         return (
             <main className="space-y-10">
-                <div className="container grid gap-y-10 gap-x-2 lg:grid-cols-[1fr_300px]">
-                    <Player status={data.status} id={data.id} title={data.name}/>
-                    <FilesPlaying title={data.name} seasons={data.number_of_seasons} episodes={data.number_of_episodes}/>
-                    <Overview className="lg:col-span-2"/>
+                <div className="container grid gap-y-10 gap-x-2 lg:grid-cols-[1fr_300px] aspect-[21/9]">
+                    
+                        <Player
+                            backdrop_path={data.backdrop_path}
+                            status={data.status}
+                            id={data.id}
+                            title={data.name}
+                        />
+                    <FilesPlaying
+                        title={data.name}
+                        seasons={data.number_of_seasons}
+                        episodes={data.number_of_episodes}
+                    />
                 </div>
                 <div className="container grid gap-y-10 gap-x-2 lg:grid-cols-[1fr_300px]">
+                    <Overview className="lg:col-span-2" />
                     <Comments />
                     <Similar />
                     <Recommended />
@@ -40,3 +50,4 @@ export default async function page({ params }: { params: { id: string } }) {
         );
     }
 }
+
