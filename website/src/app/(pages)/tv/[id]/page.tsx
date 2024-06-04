@@ -14,7 +14,6 @@ export default async function page({ params }: { params: { id: string } }) {
             mediaType: "tv",
             id: id,
         });
-        console.log(data);
         return (
             <main className="space-y-10 py-2">
                 <div className="container grid gap-y-10 gap-x-2 lg:grid-cols-[1fr_300px] lg:aspect-[21/9] ">

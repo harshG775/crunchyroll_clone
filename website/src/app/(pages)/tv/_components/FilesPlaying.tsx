@@ -9,13 +9,16 @@ type FilesPlayingProps = {
     episodes?: number;
 };
 export default function FilesPlaying({ title, seasons }: FilesPlayingProps) {
-    seasons = seasons.filter((season) => season.name !== "Specials");
+    seasons = seasons.filter((season) => {
+        if (season.name !== "Specials") {
+            return season.episode_count > 0;
+        }
+    });
     const currentSeason = playerState((state) => state.currentSeason);
     const setCurrentSeason = playerState((state) => state.setCurrentSeason);
 
     const currentEpisode = playerState((state) => state.currentEpisode);
     const setCurrentEpisode = playerState((state) => state.setCurrentEpisode);
-
     return (
         <section className="h-96 lg:h-full overflow-y-auto scrollbar-thin scrollbar-color border-b-2">
             <div className="sticky top-0 bg-background border-b-2">
@@ -29,8 +32,8 @@ export default function FilesPlaying({ title, seasons }: FilesPlayingProps) {
                             }}
                             className="py-2 px-1 rounded-md "
                         >
-                            {seasons.map((season, i: number) => (
-                                <option key={i + 1} value={i + 1}>
+                            {seasons.map((season) => (
+                                <option key={season.season_number} value={season.season_number}>
                                     {season.name}
                                 </option>
                             ))}
@@ -39,13 +42,13 @@ export default function FilesPlaying({ title, seasons }: FilesPlayingProps) {
                 />
                 <h2 className="line-clamp-1 text-sm text-foreground/50 grid items-center grid-cols-[2fr_1fr] p-2 ">
                     {title}
-                    {/* <span>Episodes: {episodes}</span> */}
+                    <span>Episodes: {seasons[currentSeason-1].episode_count }</span>
                 </h2>
             </div>
             <ul>
                 {Array.from(
-                    { length: seasons[currentSeason].episode_count },
-                    (_, i) => i + 1
+                    { length: seasons[currentSeason-1].episode_count },
+                    (_, i) => i
                 ).map((episode) => (
                     <li key={episode} className="p-1">
                         <Button
