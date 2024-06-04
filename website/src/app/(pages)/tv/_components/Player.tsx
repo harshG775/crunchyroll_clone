@@ -17,7 +17,7 @@ export default function Player({
     title,
     backdrop_path,
 }: PlayerType) {
-    const [server,setServer] =useState("pro")
+    const [server, setServer] = useState("pro");
     const currentSeason = playerState((state) => state.currentSeason);
     const currentEpisode = playerState((state) => state.currentEpisode);
 
@@ -39,9 +39,27 @@ export default function Player({
             )}
             {/* </BackgroundImage> */}
             <div className="p-2 flex gap-2 bg-secondary/50 ">
-                <Button className="text-xs" variant={"outline"} onClick={()=>setServer("pro")}>Vidsrc.pro</Button>
-                <Button className="text-xs" variant={"outline"} onClick={()=>setServer("to")}>Vidsrc.to</Button>
-                <Button className="text-xs" variant={"outline"} onClick={()=>setServer("me")}>Vidsrc.me</Button>
+                <Button
+                    className="text-xs"
+                    variant={server === "pro" ? "default" : "outline"}
+                    onClick={() => setServer("pro")}
+                >
+                    Server-1
+                </Button>
+                <Button
+                    className="text-xs"
+                    variant={server === "to" ? "default" : "outline"}
+                    onClick={() => setServer("to")}
+                >
+                    Server-2
+                </Button>
+                <Button
+                    className="text-xs"
+                    variant={server === "me" ? "default" : "outline"}
+                    onClick={() => setServer("me")}
+                >
+                    Server-3
+                </Button>
             </div>
             <p>Player</p>
             {"<Player status={data.status}/>"}
