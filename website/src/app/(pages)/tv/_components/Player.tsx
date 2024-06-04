@@ -3,6 +3,8 @@
 import { Status } from "@/types/TvDetailsType";
 import { Iframe_tv } from "./Iframe";
 import { playerState } from "@/store/zustand/PlayerState";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
 type PlayerType = {
     status: Status;
     id: number;
@@ -15,6 +17,7 @@ export default function Player({
     title,
     backdrop_path,
 }: PlayerType) {
+    const [server,setServer] =useState("pro")
     const currentSeason = playerState((state) => state.currentSeason);
     const currentEpisode = playerState((state) => state.currentEpisode);
 
@@ -25,7 +28,7 @@ export default function Player({
             > */}
             {status === "Returning Series" ? (
                 <Iframe_tv
-                    domain="pro"
+                    domain={server}
                     title={title}
                     id={id}
                     season={currentSeason}
@@ -35,7 +38,11 @@ export default function Player({
                 <p>{status}</p>
             )}
             {/* </BackgroundImage> */}
-
+            <div className="p-2 flex gap-2 bg-secondary/50 ">
+                <Button className="text-xs" variant={"outline"} onClick={()=>setServer("pro")}>Vidsrc.pro</Button>
+                <Button className="text-xs" variant={"outline"} onClick={()=>setServer("to")}>Vidsrc.to</Button>
+                <Button className="text-xs" variant={"outline"} onClick={()=>setServer("me")}>Vidsrc.me</Button>
+            </div>
             <p>Player</p>
             {"<Player status={data.status}/>"}
         </header>
