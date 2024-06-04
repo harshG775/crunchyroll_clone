@@ -84,7 +84,7 @@ export default async function Trending() {
                                         className="relative overflow-hidden "
                                     >
                                         <Link
-                                            href={`/movie/${item.id}`}
+                                            href={`/tv/${item.id}`}
                                             className="group"
                                         >
                                             <Image

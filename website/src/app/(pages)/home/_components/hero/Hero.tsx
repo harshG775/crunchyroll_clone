@@ -33,7 +33,7 @@ export default async function HeroSection() {
                                 <CarouselItem className="sm:basis-1/2 md:basis-1/3 lg:basis-1/5" key={item.id}>
                                     <Card className="relative overflow-hidden flex-shrink-0">
                                         <Link
-                                            href={`/movie/${item.id}`}
+                                            href={`/${item.media_type}/${item.id}`}
                                             className="group "
                                         >
                                             <Image

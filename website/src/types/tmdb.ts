@@ -1,3 +1,10 @@
+
+
+// 
+
+
+
+
 export type TrendingAllItemType = {
     adult: boolean;
     backdrop_path: string;

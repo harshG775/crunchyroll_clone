@@ -61,7 +61,15 @@ export type SpokenLanguage = {
     iso_639_1: string;
     name: string;
 };
-
+export type Status =
+    | "Planned"
+    | "In Production"
+    | "Returning Series"
+    | "Ended"
+    | "Pilot"
+    | "Canceled"
+    | "Post Production"
+    
 export type TvDetailsType = {
     adult: boolean;
     backdrop_path: string;
@@ -90,7 +98,7 @@ export type TvDetailsType = {
     production_countries: ProductionCountry[];
     seasons: Season[];
     spoken_languages: SpokenLanguage[];
-    status: string;
+    status: Status;
     tagline: string;
     type: string;
     vote_average: number;
