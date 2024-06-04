@@ -8,43 +8,45 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select";
+import { Season } from "@/types/TvDetailsType";
 import { useState } from "react";
 type FilesPlayingProps = {
     title: string;
-    seasons: number;
-    episodes: number;
+    seasons: Season[];
+    episodes?: number;
 };
-export default function FilesPlaying({
-    title,
-    seasons,
-    episodes,
-}: FilesPlayingProps) {
-    const [currentSeason, setCurrentSeason] = useState(1);
+export default function FilesPlaying({ title, seasons }: FilesPlayingProps) {
+    seasons = seasons.filter((season) => season.name !== "Specials");
+
+    const [episodes, setEpisodes] = useState(seasons[0].episode_count);
+    const [currentSeason, setCurrentSeason] = useState(seasons[0].id);
     const [currentEpisode, setCurrentEpisode] = useState(1);
     return (
-        <section className="h-full overflow-y-auto scrollbar-thin scrollbar-color ">
-            <div className="sticky top-0 bg-background">
+        <section className="h-96 lg:h-full overflow-y-auto scrollbar-thin scrollbar-color border-b-2">
+            <div className="sticky top-0 bg-background border-b-2">
                 <SectionTitle
                     name="Playing"
                     titleRight={
-                        <div className="flex ">
+                        <div className="flex-1 text-xs p-2">
                             <Select>
-                                <SelectTrigger className="cursor-pointer text-sm text-primary-foreground bg-primary/80 hover:bg-primary/90 px-2 py-1">
+                                <SelectTrigger>
                                     <SelectValue
-                                        placeholder={`Season-${currentSeason}`}
+                                        placeholder={`${seasons[0].name}`}
                                     />
                                 </SelectTrigger>
                                 <SelectContent>
-                                    {Array.from(
-                                        { length: seasons },
-                                        (_, i) => i + 1
-                                    ).map((season) => (
+                                    {seasons.map((season) => (
                                         <SelectItem
-                                            key={season}
-                                            value={`${season}`}
-                                            onClick={() => setCurrentSeason(season)}
+                                            key={season.id}
+                                            value={`${season.id}`}
+                                            onClick={() => {
+                                                setCurrentSeason(season.id);
+                                                setEpisodes(
+                                                    season.episode_count
+                                                );
+                                            }}
                                         >
-                                            Season-{season}
+                                            {season.name}
                                         </SelectItem>
                                     ))}
                                 </SelectContent>
@@ -52,7 +54,10 @@ export default function FilesPlaying({
                         </div>
                     }
                 />
-                <h2 className="line-clamp-1 text-sm text-foreground/50 py-2">{title}</h2>
+                <h2 className="line-clamp-1 text-sm text-foreground/50 grid items-center grid-cols-[2fr_1fr] p-2 ">
+                    {title}
+                    <span>Episodes: {episodes}</span>
+                </h2>
             </div>
             <ul>
                 {Array.from({ length: episodes }, (_, i) => i + 1).map(

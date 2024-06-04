@@ -13,10 +13,10 @@ export default function Player({
     backdrop_path,
 }: PlayerType) {
     return (
-        <header className="py-2">
-            <BackgroundImage
+        <header className="">
+            {/* <BackgroundImage
                 url={`https://image.tmdb.org/t/p/w500${backdrop_path}`}
-            >
+            > */}
                 {status === "Returning Series" ? (
                     <Iframe_tv
                         domain="pro"
@@ -28,7 +28,7 @@ export default function Player({
                 ) : (
                     <p>{status}</p>
                 )}
-            </BackgroundImage>
+            {/* </BackgroundImage> */}
 
             <p>Player</p>
             {"<Player status={data.status}/>"}
@@ -50,7 +50,7 @@ function BackgroundImage({ url, children, ...rest }: BackgroundImageType) {
                 backgroundSize: "cover",
                 backgroundPosition: "center",
             }}
-            className="bg-image p-[2px] rounded-lg aspect-video"
+            className=" rounded-lg aspect-video"
         >
             {children}
         </div>
