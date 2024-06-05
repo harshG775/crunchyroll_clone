@@ -61,8 +61,6 @@ export default function Player({
                     Server-3
                 </Button>
             </div>
-            <p>Player</p>
-            {"<Player status={data.status}/>"}
         </header>
     );
 }

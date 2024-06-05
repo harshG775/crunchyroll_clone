@@ -13,7 +13,7 @@ export default function FilesPlaying({ title, seasons }: FilesPlayingProps) {
         const currentData = new Date();
         const air_date = new Date(season.air_date);
         if (season.name !== "Specials") {
-            return season.air_date && air_date <= currentData;
+            return season.air_date ? air_date <= currentData:season.episode_count > 0;
         }
     });
     const currentSeason = playerState((state) => state.currentSeason);
@@ -32,7 +32,7 @@ export default function FilesPlaying({ title, seasons }: FilesPlayingProps) {
                                 setCurrentSeason(Number(e.target.value));
                                 setCurrentEpisode(1);
                             }}
-                            className="py-2 px-1 rounded-md "
+                            className="py-2 px-1 rounded-md bg-accent"
                         >
                             {seasons.map((season) => (
                                 <option
