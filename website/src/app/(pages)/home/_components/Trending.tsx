@@ -12,12 +12,13 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import Icon from "@/lib/icons/lucide";
+import { Poster } from "@/components/tmdb/Image";
 
 export default async function Trending() {
     try {
         const [movie, tv] = await Promise.all([
-            getTrending({mediaType:"movie"}).then((data) => data.data),
-            getTrending({mediaType:"tv"}).then((data) => data.data),
+            getTrending({ mediaType: "movie" }).then((data) => data.data),
+            getTrending({ mediaType: "tv" }).then((data) => data.data),
         ]);
         return (
             <section>
@@ -41,8 +42,9 @@ export default async function Trending() {
                                             href={`/movie/${item.id}`}
                                             className="group"
                                         >
-                                            <Image
-                                                src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
+                                            <Poster
+                                                src={item.poster_path}
+                                                size="w342"
                                                 alt={item.title}
                                                 width={180}
                                                 height={200}
@@ -76,36 +78,35 @@ export default async function Trending() {
                         </div>
                     </TabsContent>
                     <TabsContent value="tv" asChild>
-                    <div className="min-h-96 grid gap-2 grid-cols-2 sm:grid-cols-[repeat(auto-fill,minmax(180px,1fr))]">
-                            {tv.results.map(
-                                (item: TrendingTvItemType) => (
-                                    <Card
-                                        key={item.id}
-                                        className="relative overflow-hidden "
+                        <div className="min-h-96 grid gap-2 grid-cols-2 sm:grid-cols-[repeat(auto-fill,minmax(180px,1fr))]">
+                            {tv.results.map((item: TrendingTvItemType) => (
+                                <Card
+                                    key={item.id}
+                                    className="relative overflow-hidden "
+                                >
+                                    <Link
+                                        href={`/tv/${item.id}`}
+                                        className="group"
                                     >
-                                        <Link
-                                            href={`/tv/${item.id}`}
-                                            className="group"
-                                        >
-                                            <Image
-                                                src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
-                                                alt={item.name}
-                                                width={180}
-                                                height={200}
-                                                className="w-full scale-110 group-hover:scale-125 duration-300"
-                                            />
-                                            <CardHeader className="p-2 sm:p-4 shadow-lg rounded-lg border absolute bottom-1 left-1 right-1 bg-card grid items-end">
-                                                <CardTitle className=" p-0 line-clamp-1 group-hover:text-primary font-bold text-sm">
-                                                    {item.name}
-                                                </CardTitle>
-                                                <CardDescription>
-                                                    {item.first_air_date}
-                                                </CardDescription>
-                                            </CardHeader>
-                                        </Link>
-                                    </Card>
-                                )
-                            )}
+                                        <Poster
+                                            src={item.poster_path}
+                                            size="w342"
+                                            alt={item.name}
+                                            width={180}
+                                            height={200}
+                                            className="w-full scale-110 group-hover:scale-125 duration-300"
+                                        />
+                                        <CardHeader className="p-2 sm:p-4 shadow-lg rounded-lg border absolute bottom-1 left-1 right-1 bg-card grid items-end">
+                                            <CardTitle className=" p-0 line-clamp-1 group-hover:text-primary font-bold text-sm">
+                                                {item.name}
+                                            </CardTitle>
+                                            <CardDescription>
+                                                {item.first_air_date}
+                                            </CardDescription>
+                                        </CardHeader>
+                                    </Link>
+                                </Card>
+                            ))}
                             <Card className="overflow-hidden group">
                                 <Link href="/tv/Trending">
                                     <CardHeader className="h-full grid place-content-center">

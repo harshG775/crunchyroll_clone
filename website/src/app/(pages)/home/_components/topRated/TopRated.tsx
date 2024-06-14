@@ -9,9 +9,9 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
-import Image from "next/image";
 import Link from "next/link";
 import Icon from "@/lib/icons/lucide";
+import { Backdrop } from "@/components/tmdb/Image";
 
 export default async function TopRated() {
     try {
@@ -41,8 +41,9 @@ export default async function TopRated() {
                                             href={`/movie/${item.id}`}
                                             className="group"
                                         >
-                                            <Image
-                                                src={`https://image.tmdb.org/t/p/w500${item.backdrop_path}`}
+                                            <Backdrop
+                                                size="w300"
+                                                src={item.backdrop_path}
                                                 alt={item.title}
                                                 width={180}
                                                 height={200}
@@ -87,8 +88,9 @@ export default async function TopRated() {
                                             href={`/tv/${item.id}`}
                                             className="group"
                                         >
-                                            <Image
-                                                src={`https://image.tmdb.org/t/p/w500${item.backdrop_path}`}
+                                            <Backdrop
+                                                size="w300"
+                                                src={item.backdrop_path}
                                                 alt={item.name}
                                                 width={180}
                                                 height={200}
