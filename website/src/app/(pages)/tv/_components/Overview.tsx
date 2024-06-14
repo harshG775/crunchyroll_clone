@@ -13,7 +13,6 @@ type OverviewType = {
 };
 export default function Overview({ className, data }: OverviewType) {
     const [collapsed, setCollapsed] = useState(true);
-    console.log(data);
     const {
         name,
         poster_path,

@@ -1,6 +1,12 @@
 "use client";
 import SectionTitle from "@/components/ui/SectionTitle";
 import { Button } from "@/components/ui/button";
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { playerState } from "@/store/zustand/PlayerState";
 import { Season } from "@/types/TvDetailsType";
 type FilesPlayingProps = {
@@ -8,12 +14,14 @@ type FilesPlayingProps = {
     seasons: Season[];
     episodes?: number;
 };
-export default function FilesPlaying({ title, seasons }: FilesPlayingProps) {
+export default function FilesPlaying({ seasons }: FilesPlayingProps) {
     seasons = seasons.filter((season) => {
         const currentData = new Date();
         const air_date = new Date(season.air_date);
         if (season.name !== "Specials") {
-            return season.air_date ? air_date <= currentData:season.episode_count > 0;
+            return season.air_date
+                ? air_date <= currentData
+                : season.episode_count > 0;
         }
     });
     const currentSeason = playerState((state) => state.currentSeason);
@@ -27,26 +35,32 @@ export default function FilesPlaying({ title, seasons }: FilesPlayingProps) {
                 <SectionTitle
                     name="Playing"
                     titleRight={
-                        <select
-                            onChange={(e) => {
-                                setCurrentSeason(Number(e.target.value));
-                                setCurrentEpisode(1);
-                            }}
-                            className="py-2 px-1 rounded-md bg-accent"
-                        >
-                            {seasons.map((season) => (
-                                <option
-                                    key={season.season_number}
-                                    value={season.season_number}
-                                >
-                                    {season.name}
-                                </option>
-                            ))}
-                        </select>
+                        <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                                <Button variant="outline" className="text-sm m-2">
+                                    Season
+                                </Button>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent align="end">
+                                {seasons.map((season) => (
+                                    <DropdownMenuItem
+                                        key={season.season_number}
+                                        onClick={() => {
+                                            setCurrentSeason(
+                                                season.season_number
+                                            );
+                                            setCurrentEpisode(1);
+                                        }}
+                                    >
+                                        {season.name}
+                                    </DropdownMenuItem>
+                                ))}
+                            </DropdownMenuContent>
+                        </DropdownMenu>
                     }
                 />
                 <h2 className="line-clamp-1 text-sm text-foreground/50 grid items-center grid-cols-[2fr_1fr] p-2 ">
-                    {title}
+                    <span>Season: {currentSeason}</span>
                     <span>
                         Episodes: {seasons[currentSeason - 1].episode_count}
                     </span>
@@ -64,9 +78,9 @@ export default function FilesPlaying({ title, seasons }: FilesPlayingProps) {
                                 episode + 1 === currentEpisode
                                     ? "text-primary-foreground  bg-primary/80 hover:bg-primary/90"
                                     : "text-secondary-foreground bg-secondary/80 hover:bg-secondary/90 "
-                            } cursor-pointer text-sm px-2 py-1 w-full`}
+                            } cursor-pointer text-sm px-2 py-1 w-full flex justify-start`}
                         >
-                            {episode + 1}
+                            Episode: {episode + 1}
                         </Button>
                     </li>
                 ))}

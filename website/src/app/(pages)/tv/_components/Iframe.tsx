@@ -11,7 +11,6 @@ const { NEXT_PUBLIC_IFRAME_BASE_URL } = envClient;
 export function Iframe_movie({ domain, title, id }: MovieProps) {
     const baseUrl = NEXT_PUBLIC_IFRAME_BASE_URL.replace("{domain}",domain)
         .replace("{mediaType}","movie").replace("{id}", id + "");
-        console.log(baseUrl)
     return (
         <iframe
             key={id}
