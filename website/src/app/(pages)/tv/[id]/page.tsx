@@ -16,7 +16,7 @@ export default async function page({ params }: { params: { id: string } }) {
         });
         return (
             <main className="space-y-10 py-2">
-                <div className="container grid gap-y-10 gap-x-2 lg:grid-cols-[1fr_300px] lg:aspect-[21/9] ">
+                <div className="container py-2 grid gap-y-10 gap-x-2 lg:grid-cols-[1fr_300px] lg:aspect-[21/9] shadow-md">
                     <Player
                         backdrop_path={data.backdrop_path}
                         status={data.status}

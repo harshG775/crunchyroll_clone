@@ -17,12 +17,20 @@ export default function Player({
     title,
     backdrop_path,
 }: PlayerType) {
+    const [serverLoading, setServerLoading] = useState(false);
     const [server, setServer] = useState("pro");
     const currentSeason = playerState((state) => state.currentSeason);
     const currentEpisode = playerState((state) => state.currentEpisode);
 
+    const handleServer =async (server: string) => {
+        setServerLoading(true);
+        setServer(server);
+
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+        setServerLoading(false);
+    }
     return (
-        <header className="">
+        <header className="bg-secondary/50 px-2 rounded-md">
             {/* <BackgroundImage
                 url={`https://image.tmdb.org/t/p/w500${backdrop_path}`}
             > */}
@@ -38,25 +46,28 @@ export default function Player({
                 <p>{status}</p>
             )}
             {/* </BackgroundImage> */}
-            <div className="p-2 flex gap-2 bg-secondary/50 ">
+            <div className="py-2 flex gap-2 ">
                 <Button
+                    disabled={serverLoading}
                     className="text-xs"
                     variant={server === "pro" ? "default" : "outline"}
-                    onClick={() => setServer("pro")}
+                    onClick={() => handleServer("pro")}
                 >
                     Server-1
                 </Button>
                 <Button
+                    disabled={serverLoading}
                     className="text-xs"
                     variant={server === "to" ? "default" : "outline"}
-                    onClick={() => setServer("to")}
+                    onClick={() => handleServer("to")}
                 >
                     Server-2
                 </Button>
                 <Button
+                    disabled={serverLoading}
                     className="text-xs"
                     variant={server === "me" ? "default" : "outline"}
-                    onClick={() => setServer("me")}
+                    onClick={() => handleServer("me")}
                 >
                     Server-3
                 </Button>
@@ -69,19 +80,3 @@ type BackgroundImageType = {
     url: string;
     children: React.ReactNode;
 };
-function BackgroundImage({ url, children, ...rest }: BackgroundImageType) {
-    return (
-        <div
-            {...rest}
-            style={{
-                backgroundImage: `url(${url})`,
-                backdropFilter: "opacity(20%)",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-            }}
-            className=" rounded-lg aspect-video"
-        >
-            {children}
-        </div>
-    );
-}
